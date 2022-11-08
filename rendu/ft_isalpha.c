@@ -6,12 +6,9 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/07 15:24:54 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:21:02 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-#include <stdio.h> //
 
 int	ft_isalpha(int c)
 {
