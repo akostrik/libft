@@ -1,16 +1,15 @@
 NAME    = libft.a
-SRCS    = ft_isalpha.c ft_isdigit.c
+SRCS    = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c
 OBJS    = ${SRCS:.c=.o}
 HDRS    = .
+CFLAGS  = -Wall -Wextra -Werror
 
 all: ${NAME}
 
-${NAME}: clean
-	gcc -I ${HDRS} -c ft_isalpha.c
-	gcc -I ${HDRS} -c ft_isdigit.c
-#	gcc -I ${HDRS} -c $< -o ${<:.c=.o}
+${NAME}: clean ${OBJS} 
+	gcc -c ${OBJS} -o ${NAME}
 	ar rc libft.a ${OBJS}
- 
+
 clean:
 	rm -f ${OBJS}
 
@@ -20,4 +19,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-#CFLAGS  = -Wall -Wextra -Werror
