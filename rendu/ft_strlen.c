@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/10 15:48:51 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:10:17 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <stddef.h>
+
+size_t	ft_strlen(char *str)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	char	*c;
+	size_t	n;
+
+	c = str;
+	n = 0;
+	while (*c != '\0')
+	{
+		n++;
+		c++;
+	}
+	return (n);
 }
