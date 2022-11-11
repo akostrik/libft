@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/11 17:17:50 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/11 20:31:37 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// returns a pointer to the memory area s
-
-// Третий аргумент = колво байт, а не элементов, не учитывая тип данных
+// returns a pointer to the last occurrence of the character c in the string s.
+// or NULL if the character is not found
 
 #include <stddef.h>
 #include <stdio.h>
 
-void* ft_memset(void *s, int c, size_t n)
+char* ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	char*	p;
+	char*	to_return;
 
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
-	i = 0;
-	while (i < n)
+	p = (char*)s;
+	to_return = NULL;
+	while (1 == 1)
 	{
-		i++;
+		if (*p == c)
+			to_return = p;
+		if (*p == '\0')
+			return (to_return);
+		p++;
 	}
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
-	return (s);
 }

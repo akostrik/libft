@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/11 17:17:50 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/11 21:22:44 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// returns a pointer to the memory area s
-
-// Третий аргумент = колво байт, а не элементов, не учитывая тип данных
+// returns a pointer to the first occurrence of the character c in the string s
+// "character" = "byte"; does not work with wide or multibyte characters
+// returns a pointer to the matched character or NULL if not found
+// The terminating null byte is considered part of the string, so that if c 
+// is specified as '\0', these functions return a pointer to the terminator
 
 #include <stddef.h>
 #include <stdio.h>
 
-void* ft_memset(void *s, int c, size_t n)
+char*	ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	char*	p;
 
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
-	i = 0;
-	while (i < n)
+	p = (char*)s;
+	while (1 == 1)
 	{
-		i++;
+		if (*p == c)
+			return (p);
+		if (*p == '\0')
+			return (NULL);
+		p++;
 	}
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
-	return (s);
 }
