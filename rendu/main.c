@@ -16,7 +16,7 @@
 
 void print_test_char(char *func_name, char c, int(*f1)(int), int(*f2)(int), char *comment)
 {
-	printf("%s(%c\t%d\t%clear32b\t%8x) \t%d  \t%d     %s\n",func_name,c,c,c,c,f1(c),f2(c),comment); 
+	printf("%s(%c\t%d\t%32b\t%8x) \t%d  \t%d     %s\n",func_name,c,c,c,c,f1(c),f2(c),comment); 
 }
 
 void print_test_str(char *func_name, char* str, size_t(*f1)(const char *), int(*f2)(char *),char *comment)
@@ -42,8 +42,9 @@ int main(void)
 	printf("\n");
 
 	print_test_char("isascii",0,isascii,ft_isascii,""); // 8 bits
+	printf("isascii(0 \t%d\t%32b\t\t\t\t%8x) \t%d  \t%d \n",0,0,0,isascii(0),ft_isascii(0)); 
 	print_test_char("isascii",0x7E,isascii,ft_isascii,"0x7E = 126"); // 8 bits 
-	print_test_char("isascii",0x7F,isascii,ft_isascii,"0x7F = 127"); // 8 bits
+	printf("isascii(' ' \t%d\t%32b\t%8x) \t\t\t%d  \t%d     espace\n",' ',' ',' ',isascii(' '),ft_isascii(' ')); 
 	print_test_char("isascii",128,isascii,ft_isascii,"0x80 = 128 non permis"); // 32 bits non permis
 	print_test_char("isascii",0xF0,isascii,ft_isascii,"0xF0 = 256 non permis"); // 32 bits non permis
 	print_test_char("isascii",0xF1,isascii,ft_isascii,"0xF1 = 257 non permis"); // 32 bits non permis
