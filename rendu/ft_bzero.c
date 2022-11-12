@@ -10,19 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// Третий аргумент = колво байт, а не элементов, не учитывая тип данных
-// копирует младший байт c в первые n символов массива, адресуемого параметром buf
+// erases the data in the n bytes of the memory starting at the location 
+// pointed to  by s,  by  writing zeros (bytes containing '\0') to that area
 
 #include <stddef.h>
 
-void* ft_memset(void *s, int c, size_t n)
+void ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 	i=0;
 	while (i < n)
 	{
-	  *((char *)s+i) = (char)c;
+	  *((char *)s+i) = '\0';
 		i++;
 	}  
-	return (s);
 }

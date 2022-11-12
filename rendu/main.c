@@ -67,6 +67,36 @@ int main(void)
 	print_test_str("strlen","\n",strlen,ft_strlen,"\\n");
 	printf("\n");
 
+	char s1[4] = { 'A', 'B', 'C', '\0'};
+	printf("memset(%s,'D')\t\t\t\t\t\t\t\t\t",s1);
+	printf("%s\t",(char *)memset(s1, 'D', 3));
+	printf("%s\n",(char *)ft_memset(s1, 'D', 3));
+
+	char s2[4] = { 'A', 'B', 'C', '\0'};
+	printf("bzero(%s)\t\t\t\t\t\t\t\t\t",s2);
+	bzero(s2, 3);
+	printf("%s\t",s2);
+	char s3[4] = { 'A', 'B', 'C', '\0'};
+	ft_bzero(s3, 3);
+	printf("%s\n",s3);
+
+	char s4[4] = { 'A', 'B', 'C', '\0'};
+	char s5[4] = { 'D', 'E', 'F', '\0'};
+	printf("memcpy(%s,%s)\t\t\t\t\t\t\t\t\t",s5,s4);
+	printf("%s\t",(char *)memcpy(s5,s4,4));
+	char s6[4] = { 'A', 'B', 'C', '\0'};
+	char s7[4] = { 'D', 'E', 'F', '\0'};
+	printf("%s\n",(char *)ft_memcpy(s7,s6,4));
+
+	char s8[4] = { 'A', 'B', 'C', '\0'};  // разной длины?
+	char s9[4] = { 'D', 'E', 'F', '\0'};
+	printf("memmove(%s,%s)\t\t\t\t\t\t\t\t",s9,s8);
+	printf("%s\t",(char *)memcpy(s9,s8,4));
+	char s10[4] = { 'A', 'B', 'C', '\0'};
+	char s11[4] = { 'D', 'E', 'F', '\0'};
+	printf("%s\n",(char *)ft_memcpy(s11,s10,4));
+
+
 	// returns the total length of the string it tried to create = the length of src
 	char *src = "ABC";
 	char dst01[3];
