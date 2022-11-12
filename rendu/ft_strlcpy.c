@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/11 19:35:27 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/12 20:53:03 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,21 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 {
 	size_t	i;
 
-	if (n == 0)
-		return (0);
 	i = 0;
-	while (i < n)
+	while ((int)i < (int)(n - 1))
 	{
 		dst[i] = src[i];
 		if (src[i] == '\0')
-			return (i + 1);
+			break;
 		i++;
 	}
-	dst[i - 1] = '\0';
-	return (i + 1);
+	dst[i] = '\0';
+	i = 0;
+	while (1)
+	{
+		if (src[i] == '\0')
+			return (i);
+		i++;
+	}
+	return (-1);
 }
