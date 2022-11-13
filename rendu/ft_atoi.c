@@ -11,42 +11,60 @@
 /* ************************************************************************** */
 
 /*
-DESCRIPTION
-       The atoi() function converts the initial portion of the string pointed to by nptr to int.  The behavior is the same as
-
-           strtol(nptr, NULL, 10);
-
-       except that atoi() does not detect errors.
-
-       The atol() and atoll() functions behave the same as atoi(), except that they convert the initial portion of the string to their re‐
-       turn type of long or long long.
-
-RETURN VALUE
-       The converted value or 0 on error
-NOTES
-       POSIX.1 leaves the return value of atoi() on error unspecified.  On glibc, musl libc, and uClibc, 0 is returned on error.
-
-BUGS
-       errno is not set on error so there is no way to distinguish between 0 as an error and as the converted value.  No checks for  over‐
-       flow or underflow are done.  Only base-10 input can be converted.  It is recommended to instead use the strtol() and strtoul() fam‐
-       ily of functions in new programs.
-
+Converts the initial portion of the string pointed to by str to int
+Does not detect errors
+The string may begin with an arbitrary amount of white space (isspace(3)) 
+followed by a single optional '+' or '-' 
+The remainder of the string is converted to a long value in the obvious manner, 
+stopping at the first character which is not a valid digit 
+Retourns the converted value or 0 on error
+If there were no digits at all, returns 0
 */
 
-#include <stddef.h>
 #include <stdio.h>
+#include "libft.h"
 
-int ft_atoi(const char *nptr)
+static int is_whitespace(char c)
 {
-	size_t	i;
+	if (c == ' ')
+		return (1);
+	if (c == '\f')
+		return (1);
+	if (c == '\n')
+		return (1);
+	if (c == '\r')
+		return (1);
+	if (c == '\t')
+		return (1);
+	if (c == '\v')
+		return (1);
+	return (0);
+}
 
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
-	i = 0;
-	while (i < n)
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	sign;
+	int	to_return;
+
+  i = 0;
+	while (is_whitespace(str[i]) == 1)
+		i++;
+	sign = 1;
+	if (str[i] == '-')
 	{
-		s[0] = c;
+		sign = -1;
 		i++;
 	}
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
-	return (s);
+  if (str[i] == '+')
+    i++;
+	while (str[i] == '0')
+		i++;
+	to_return = 0;
+	while (ft_isdigit(str[i]) == 1)
+	{
+		to_return = to_return * 10 + str[i] - '0';
+		i++;
+	}
+	return (sign * to_return);
 }

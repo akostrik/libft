@@ -1,7 +1,11 @@
+// везде проверить MAXINT NULL 0 
+
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include <bsd/string.h>
+#include <limits.h>
+#include <stdlib.h>
+//#include <bsd/string.h>
 #include "libft.h"
 
 // The standards : c = EOF / a value that is representable in unsigned char
@@ -17,6 +21,15 @@
 void print_test_char(char *func_name, char c, int(*f1)(int), int(*f2)(int), char *comment)
 {
 	printf("%s(%c\t%d\t%32b\t%8x) \t%d  \t%d     %s\n",func_name,c,c,c,c,f1(c),f2(c),comment); 
+}
+
+void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить memset etc
+{
+	int i = 0;
+	if (mem != NULL)
+		for(; i < (int)nb_bytes; i++)
+			res_str[i] = ((char*)mem)[i];
+	res_str[i] = '\0';
 }
 
 int main(void)
@@ -95,6 +108,7 @@ int main(void)
 
 	printf("strlcpy returns the total length of the string it tried to create = the length of src\n");
 	// poprobovqt korotkie stroki
+	/*
 	char *src = "ABC";
 	char dst01[3];
 	char dst02[3];
@@ -202,7 +216,7 @@ int main(void)
 	ret = ft_strlcat(dst26, src, 6); 
 	printf("dst=\"%s\" ret=%ld\n",dst26,ret); 
 
-	/*char dst27[8]; dst27[0]='D'; dst27[1]='E'; dst27[2]='F'; dst27[3]='\0';
+	char dst27[8]; dst27[0]='D'; dst27[1]='E'; dst27[2]='F'; dst27[3]='\0';
 	char dst28[8]; dst28[0]='D'; dst28[1]='E'; dst28[2]='F'; dst28[3]='\0';
 	printf("strlcat(\"%s\" \"%s\" %d)\t\t\t",dst27,src,7);
 	ret = strlcat(dst27, src, 7); 
@@ -232,7 +246,8 @@ int main(void)
 	ret = strlcat(dst33, src, 10); 
 	printf("dst=\"%s\" ret=%ld\t\t",dst33,ret); 
 	ret = ft_strlcat(dst34, src, 10); 
-	printf("dst=\"%s\" ret=%ld\n",dst34,ret); */
+	printf("dst=\"%s\" ret=%ld\n",dst34,ret); 
+	*/
 	printf("\n");
 
 	printf("toupper('a')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'a'),ft_toupper((unsigned char)'a'));
@@ -264,16 +279,16 @@ int main(void)
 	printf("strncmp(\"A\",\"ABD\",1)\t\t\t%d\t\t\t\t%d\n",strncmp("A","ABD",1),ft_strncmp("A","ABD",1));
 	printf("strncmp(\"A\",\"ABD\",2)\t\t\t%d\t\t\t\t%d\n",strncmp("A","ABD",2),ft_strncmp("A","ABD",2));
 	printf("strncmp(\"ABC\",\"ABC\",10)\t\t\t%d\t\t\t\t%d\n",strncmp("ABC","ABC",10),ft_strncmp("ABC","ABC",10));
-
 	printf("\n");
+
 	char* mem = "ABC";
 	printf("memchr(\"ABC\",'B',0)\t\t\t%s\t\t\t\t%s\n",(char*)memchr(mem,'B',0),(char*)ft_memchr(mem,'B',0));
 	printf("memchr(\"ABC\",'B',1)\t\t\t%s\t\t\t\t%s\n",(char*)memchr(mem,'B',1),(char*)ft_memchr(mem,'B',1));
 	printf("memchr(\"ABC\",'B',2)\t\t\t%s\t\t\t\t%s\n",(char*)memchr(mem,'B',2),(char*)ft_memchr(mem,'B',2));
 	printf("memchr(\"ABC\",'B',5)\t\t\t%s\t\t\t\t%s\n",(char*)memchr(mem,'B',5),(char*)ft_memchr(mem,'B',5));
 	printf("memchr(\"ABC\",'D',5)\t\t\t%s\t\t\t\t%s\n",(char*)memchr(mem,'D',5),(char*)ft_memchr(mem,'D',5));
-
 	printf("\n");
+
 	printf("memcmp(\"ABC\",\"ABC\",3)\t\t\t%d\t\t\t\t%d\n",memcmp("ABC","ABC",3),ft_memcmp("ABC","ABC",3));
 	printf("memcmp(\"ABC\",\"ABD\",3)\t\t\t%d\t\t\t\t%d\n",memcmp("ABC","ABD",3),ft_memcmp("ABC","ABD",3));
 	printf("memcmp(\"ABD\",\"ABC\",3)\t\t\t%d\t\t\t\t%d\n",memcmp("ABD","ABC",3),ft_memcmp("ABD","ABC",3));
@@ -285,4 +300,85 @@ int main(void)
 	printf("memcmp(\"ABD\",\"ABC\",0)\t\t\t%d\t\t\t\t%d\n",memcmp("ABD","ABC",0),ft_memcmp("ABD","ABC",0));
 	printf("memcmp(\"\\0\",\"\\0\",2)\t\t\t%d\t\t\t\t%d\n",memcmp("\\0","\\0",2),ft_memcmp("\\0","\\0",2));
 	printf("memcmp(\"ABC\",\"\\0\",1)\t\t\t%d\t\t\t\t%d\n",memcmp("ABC","\\0",1),ft_memcmp("ABC","\\0",1));
+	printf("\n");
+
+	// попробовать больше maxint
+	char* str1 = "42";	
+	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str1,atoi(str1),ft_atoi(str1));
+	char* str2 = "-42";	
+	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str2,atoi(str2),ft_atoi(str2));
+	char* str3 = "--42";	
+	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str3,atoi(str3),ft_atoi(str3));
+	char* str4 = " -42";	
+	printf("atoi(\"[%s]\")\t\t\t\t%d\t\t\t\t%d\n",str4,atoi(str4),ft_atoi(str4));
+	char* str5 = "a42";	
+	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str5,atoi(str5),ft_atoi(str5));
+	char* str6 = "42a b";	
+	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str6,atoi(str6),ft_atoi(str6));
+	char* str7 = "   42";	
+	printf("atoi(\"[%s]\")\t\t\t\t%d\t\t\t\t%d\n",str7,atoi(str7),ft_atoi(str7));
+	char* str8 = "2147483647";	
+	printf("atoi(\"%s\")\t\t\t%d\t\t\t%d\n",str8,atoi(str8),ft_atoi(str8));
+	char* str9 = "2147483648";	
+	printf("atoi(\"%s\")\t\t\t%d\t\t\t%d\n",str9,atoi(str9),ft_atoi(str9));
+	char* str10 = "-2147483648";	
+	printf("atoi(\"%s\")\t\t\t%d\t\t\t%d\n",str10,atoi(str10),ft_atoi(str10));
+	char* str11 = "-2147483649";	
+	printf("atoi(\"%s\")\t\t\t%d\t\t\t%d\n",str11,atoi(str11),ft_atoi(str11));
+	printf("\n");
+
+	// ft_calloc попробовать огромные оба параметра
+	void* mem01, *mem02;
+	size_t nmemb = 5;
+	size_t size = 1; // 1 byte
+	char* res_str[100]; // 	
+	printf("calloc(%ld,%ld)\t\t\t\t",nmemb,size);
+	mem01 = calloc(nmemb,size);
+	mem_to_str(mem01,nmemb,res_str);
+	printf("[%s]\t\t\t\t",res_str);
+  mem02 = ft_calloc(nmemb,size);
+	mem_to_str(mem02,nmemb,res_str);
+	printf("[%s]\n",res_str);
+
+	void* mem03, *mem04;
+	nmemb = 5;
+	size = 2; 
+	printf("calloc(%ld,%ld)\t\t\t\t",nmemb,size);
+	mem03 = calloc(nmemb,size);
+	mem_to_str(mem03,nmemb,res_str);
+	printf("[%s]\t\t\t\t",res_str);
+  mem04 = ft_calloc(nmemb,size);
+	mem_to_str(mem04,nmemb,res_str);
+	printf("[%s]                 // wait .....\n",res_str);
+
+	/*
+	void* mem05, *mem06;
+	nmemb = 1; 
+	size = INT_MAX; 
+	printf("calloc(%ld,%ld)\t\t\t",nmemb,size);
+	mem05 = calloc(nmemb,size);
+	mem_to_str(mem05,nmemb,res_str);
+	printf("[%s]\t\t\t\t",res_str);
+  mem06 = ft_calloc(nmemb,size);
+	mem_to_str(mem06,nmemb,res_str);
+	printf("[%s] \n",res_str);
+	*/
+
+	void* mem07, *mem08;
+	nmemb = 2;   
+	size = INT_MAX; 
+	printf("calloc(%ld,%ld)\t\t\t",nmemb,size);
+	mem07 = calloc(nmemb,size);
+	mem_to_str(mem07,nmemb,res_str);
+	printf("[%s]\t\t\t\t",res_str);
+  mem08 = ft_calloc(nmemb,size);
+	mem_to_str(mem08,nmemb,res_str);
+	printf("[%s]                 // quickly, calloc returns NULL\n",res_str);
+	printf("\n");
+
+	char *str12 = "abc";
+	printf("strdup(%s)\t\t\t\t%s\t\t\t\t%s\n",str12,strdup(str12),ft_strdup(str12));
+	char *str13 = "";
+	printf("strdup(%s)\t\t\t\t[%s]\t\t\t\t[%s]\n",str13,strdup(str13),ft_strdup(str13));
+
 }

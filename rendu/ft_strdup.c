@@ -11,38 +11,38 @@
 /* ************************************************************************** */
 
 /*
-DESCRIPTION
-       The  strdup()  function  returns  a pointer to a new string which is a duplicate of the string s.  Memory for the new string is ob‐
-       tained with malloc(3), and can be freed with free(3).
-
-       The strndup() function is similar, but copies at most n bytes.  If s is longer than n, only n bytes are copied, and  a  terminating
-       null byte ('\0') is added.
-
-       strdupa()  and  strndupa()  are  similar, but use alloca(3) to allocate the buffer.  They are available only when using the GNU GCC
-       suite, and suffer from the same limitations described in alloca(3).
-
-RETURN VALUE
-       On success, the strdup() function returns a pointer to the duplicated string.  It returns NULL if insufficient  memory  was  avail‐
-       able, with errno set to indicate the cause of the error.
-
-ERRORS
-       ENOMEM Insufficient memory available to allocate duplicate string.
+returns a pointer to a new string which is a duplicate of the string s
+Memory for the new string is obtained with malloc(3), can be freed with free(3).
+On success, returns a pointer to the duplicated string.
+Returns NULL if insufficient memory was available, errno = the cause of the error
+ERRORS : ENOMEM Insufficient memory available to allocate duplicate string.
 */
 
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 char *ft_strdup(const char *s)
 {
 	size_t	i;
+	size_t	initial_length_s;
+  char*		res_str;
 
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
 	i = 0;
-	while (i < n)
+	while (s[i] != '\0')
+		i++;
+	initial_length_s = i; // = 0 ?
+  res_str = NULL;
+  res_str = (char *)malloc((2 * initial_length_s + 1) * sizeof(char));
+  if (res_str == NULL)
+    return (NULL);
+	i = 0;
+	while(i < initial_length_s)
 	{
-		s[0] = c;
+		res_str[i] = s[i];
+		res_str[initial_length_s + i] = s[i];
 		i++;
 	}
-	printf("s = %s = %ld\n",(char*)s,(long int)s);
-	return (s);
+	res_str[initial_length_s + i] = '\0';
+  return (res_str);
 }
