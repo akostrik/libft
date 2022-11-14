@@ -6,26 +6,22 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/10 16:19:45 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:02:24 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // ASCII character (0 to 127) ?
 // man : whether c is a 7-bit unsigned char value that fits into the ASCII set
-// возвращает ненулевое знач, если c от 0 до 0x7F=255 
+// c must have the value of an unsigned char or EOF
 // POSIX 1003.1 OB XSI  obsolescent
 // macros
 // 32 = 00010000
 // | поразрядное ИЛИ
 //if ( ((unsigned)c|32) <= 127)
 
-#include <stdio.h>
-
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	if (c == EOF)
+	if ((unsigned int)c <= 127)
 		return (1);
 	return (0);
 }

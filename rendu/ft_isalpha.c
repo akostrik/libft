@@ -6,17 +6,17 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/10 15:49:44 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:45:51 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//if (c >= 'A' && c <= 'Z')
-//	return (1);
-//if (c >= 'a' && c <= 'z')
-//	return (1);
-//return (0);
+// 	return (((unsigned)c | 32) - 'a' < 26);
 
 int	ft_isalpha(int c)
 {
-	return (((unsigned)c | 32) - 'a' < 26);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

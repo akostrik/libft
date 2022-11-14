@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/11 17:13:06 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:50:08 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ If there were no digits at all, returns 0
 #include <stdio.h>
 #include "libft.h"
 
-static int is_whitespace(char c)
+static int	is_whitespace(char c)
 {
 	if (c == ' ')
 		return (1);
@@ -47,7 +47,7 @@ int	ft_atoi(const char *str)
 	int	sign;
 	int	to_return;
 
-  i = 0;
+	i = 0;
 	while (is_whitespace(str[i]) == 1)
 		i++;
 	sign = 1;
@@ -56,8 +56,8 @@ int	ft_atoi(const char *str)
 		sign = -1;
 		i++;
 	}
-  if (str[i] == '+')
-    i++;
+	if (str[i] == '+')
+		i++;
 	while (str[i] == '0')
 		i++;
 	to_return = 0;

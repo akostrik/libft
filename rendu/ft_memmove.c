@@ -1,38 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/10 16:45:24 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:45:11 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// copies n bytes from memory area src to memory area dest
-// The memory areas may overlap: copying takes place as though the bytes in
-// src are first copied into a temporary array that does not overlap src or  
-// dest, and the bytes are then copied from the temporary array to dest
-// returns a pointer to dest
+// Copies n bytes from memory area src to memory area dest
+// src and dest may overlap: 
+// the bytes in src are first copied into a tmp array that does not 
+// overlap src or dest, and the bytes are then copied from the tmp array to dest
+// Returns a pointer to dest
 
 #include <stddef.h>
 
-void* ft_memmove(void *dest, const void *src, size_t n)
+static int	src0_inside_src(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	char tmp[n];
-	i=0;
+
+	i = 1;
 	while (i < n)
 	{
-	  tmp[i] = *((char *)src + i);
+		if ((const void *)dest == src + i)
+			return (1);
 		i++;
-	}  
-	i=0;
-	while (i < n)
+	}
+	return (0);
+}
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	size_t	i;
+
+	if (src0_inside_src(dest, src, n) == 1)
 	{
-	  *((char *)dest + i) = tmp[i];
-		i++;
-	}  
+		i = n;
+		while (1)
+		{
+			i--;
+			*((char *)dest + i) = *((char *)src + i);
+			if (i == 0)
+				break ;
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			*((char *)dest + i) = *((char *)src + i);
+			i++;
+		}
+	}
 	return (dest);
 }

@@ -6,23 +6,27 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/10 16:45:24 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:55:18 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// копирует младший байт c в первые n символов массива, адресуемого параметром s
+// Fills the first n bytes of the memory pointed to by s with the const. byte c
+// Returns a pointer to the memory area s.
 // Третий аргумент = колво байт, а не элементов, не учитывая тип данных
 
 #include <stddef.h>
 
-void* ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	i=0;
+
+	if (s == NULL)
+		return (NULL);
+	i = 0;
 	while (i < n)
 	{
-	  *((char *)s+i) = (char)c;
+		*((char *)s + i) = (char)c;
 		i++;
-	}  
+	}
 	return (s);
 }
