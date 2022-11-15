@@ -22,7 +22,13 @@ If there were no digits at all, returns 0
 */
 
 #include <stdio.h>
-#include "libft.h"
+
+static int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 static int	is_whitespace(char c)
 {

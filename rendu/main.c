@@ -1,27 +1,23 @@
 // везде проверить MAXINT NULL 0 
-// не использовать функции из библиотеки
 // возвращаемые значения у меня и у libc не совпадают
 // static functions
-// убрать файл со своими функциями
+// atoi #include "libft.h" не использовать функции из библиотеки
 
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <limits.h>
 #include <stdlib.h>
-#include <bsd/string.h>
+//#include <bsd/string.h>
 #include <errno.h>
 #include "libft.h"
 
 // The standards : c = EOF / a value that is representable in unsigned char
-// c = an unsigned char or EOF, isascii undefined behavior for other values 
 // If the argument c char, must be cast to unsigned char
 // isalpha - макрокоманда
 // определена только если isascii(c) равно true или c = EOF
 // isalpha доступна в UNIX, поддерживается стандартом ANSI C
 // почему ilsapha макрос
-// print_test("isascii",'*',isascii,ft_isascii) ?
-// Error: HEADER_PROT_ALL
 
 void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить memset etc
 {
@@ -264,6 +260,7 @@ int main(void)
 	printf("[%s]\t\tdest0 inside src, inverse ordre\n",(char *)ft_memmove(&src2[2],src2,n));
 	printf("\n");
 
+/*
 	printf("strlcpy returns the total length of the string it tried to create = the length of src\n");
 	// poprobovqt korotkie stroki
 	char *src = "ABC";
@@ -405,7 +402,7 @@ int main(void)
 	ret = ft_strlcat(dst34, src, 10); 
 	printf("dst=\"%s\"\tret=%ld\n",dst34,ret); 
 	printf("\n");
-
+*/
 	printf("toupper('a')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'a'),ft_toupper((unsigned char)'a'));
 	printf("toupper('A')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'A'),ft_toupper((unsigned char)'A'));
 	printf("toupper('*')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'*'),ft_toupper((unsigned char)'*'));
@@ -457,7 +454,7 @@ int main(void)
 	printf("memcmp(\"\\0\",\"\\0\",2)\t\t\t%d\t\t\t\t%d\n",memcmp("\\0","\\0",2),ft_memcmp("\\0","\\0",2));
 	printf("memcmp(ABC,\"\\0\",1)\t\t\t%d\t\t\t\t%d\n",memcmp("ABC","\\0",1),ft_memcmp("ABC","\\0",1));
 	printf("\n");
-
+/*
 	char*	big = "ABCDE";
 	char*	little = "CD";
 	n = 5;
@@ -481,7 +478,7 @@ int main(void)
 	n = 5;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
 	printf("\n");
-
+*/
 	// попробовать больше maxint
 	char* str32 = "0";	
 	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str32,atoi(str32),ft_atoi(str32));
@@ -562,6 +559,104 @@ int main(void)
 	char *str13 = "";
 	printf("strdup(%s)\t\t\t\t[%s]\t\t\t\t[%s]\t\t\terrno = %s\n",str13,strdup(str13),ft_strdup(str13),errno);
 	printf("\n");
-	// free () ?
 
+	printf("strjoin(ABC,DE)\t\t\\t%s\n",ft_strjoin("ABC", "DE"));
+	printf("\n");
+
+	printf("substr(ABCDE,0,3)\t\t\t%s\n",ft_substr("ABCDE",0,3));
+	printf("substr(ABCDE,1,3)\t\t\t%s\n",ft_substr("ABCDE",1,3));
+	printf("substr(ABCDE,2,3)\t\t\t%s\n",ft_substr("ABCDE",2,3));
+	printf("substr(ABCDE,3,3)\t\t\t%s\n",ft_substr("ABCDE",3,3));
+	printf("substr(ABCDE,4,3)\t\t\t%s\n",ft_substr("ABCDE",4,3));
+	printf("substr(ABCDE,5,3)\t\t\t%s\n",ft_substr("ABCDE",5,3));
+	printf("substr(ABCDE,0,5)\t\t\t%s\n",ft_substr("ABCDE",0,5));
+	printf("substr(ABCDE,0,10)\t\t\t%s\n",ft_substr("ABCDE",0,10));
+	printf("\n");
+
+	printf("strtrim({(ABCDE)},\"_(){}\")\t\t%s\n",ft_strtrim("{(ABCDE)}","_(){}"));
+	printf("strtrim({(___)},\"_(){}\")\t\t[%s]\n",ft_strtrim("{(___)}","_(){}"));
+	printf("strtrim(A{(___)},\"_(){}\")\t\t%s\n",ft_strtrim("A{(___)}","_(){}"));
+	printf("strtrim({(___)}A,\"_(){}\")\t\t%s\n",ft_strtrim("{(___)}A","_(){}"));
+	printf("strtrim({(___)}A_,\"_(){}\")\t\t%s\n",ft_strtrim("{(___)}A_","_(){}"));
+	printf("strtrim({(ABCDE)},\"\")\t\t\t%s\n",ft_strtrim("{(ABCDE)}",""));
+	printf("strtrim(\"\",\"_()}\")\t\t\t[%s]\n",ft_strtrim("","_()}"));
+	printf("\n");
+
+	char *str = "__A__B__C__";
+	char	separator = '_';
+	char	**tab = ft_split(str, separator);
+	printf("split(%s,%c)\t\t\t",str,separator);
+	int i;
+	for (i = 0; tab[i] != NULL; i++)
+		printf("%s ", tab[i]);
+	if (tab[i] == NULL)
+		printf("NULL\n");
+
+	str = "A__B__C";
+	separator = '_';
+	tab = ft_split(str, separator);
+	printf("slit(%s,%c)\t\t\t\t",str,separator);
+	for (i = 0; tab[i] != NULL; i++)
+		printf("%s ", tab[i]);
+	if (tab[i] == NULL)
+		printf("NULL\n");
+
+	str = "ABC";
+	separator = '_';
+	tab = ft_split(str, separator);
+	printf("split(%s,%c)\t\t\t\t",str,separator);
+	for (i = 0; tab[i] != NULL; i++)
+		printf("%s ", tab[i]);
+	if (tab[i] == NULL)
+		printf("NULL\n");
+
+	str = "";
+	separator = '_';
+	tab = ft_split(str, separator);
+	printf("split(\"%s\",%c)\t\t\t\t",str,separator);
+	for (i = 0; tab[i] != NULL; i++)
+		printf("%s ", tab[i]);
+	if (tab[i] == NULL)
+		printf("NULL\n");
+	printf("\n");
+
+	n = 10;
+	printf("itoa(%d)\t\t\t\t%s\n",n,ft_itoa(n));
+	n = -10;
+	printf("itoa(%d)\t\t\t\t%s\n",n,ft_itoa(n));
+	n = 1000;
+	printf("itoa(%d)\t\t\t\t%s\n",n,ft_itoa(n));
+	n = INT_MAX;
+	printf("itoa(%d)\t\t\t%s\n",n,ft_itoa(n));
+	n = INT_MIN;
+	printf("itoa(%d)\t\t\t%s\n",n,ft_itoa(n));
+	n = 0;
+	printf("itoa(%d)\t\t\t\t\t%s\n",n,ft_itoa(n));
+	printf("\n");
+
+	char *func(unsigned int n, char c)
+	{
+		return (c+n);
+	}
+	char *s = "ABC";
+	printf("strmapi(%s,c->c+2)\t\t\t%s\n",s,ft_strmapi(s,func));
+
+	s = "";
+	printf("strmapi(\"\",c->c+2)\t\t\t[%s]\n",ft_strmapi(s,func));
+	printf("\n");
+
+	char *func2(unsigned int n, char *c)
+	{
+		*c += n;
+	}
+	char s42[4] = {'A','B','C','\0'};
+	printf("striteri(%s,c->c+index)\t\t",s42);
+	ft_striteri(s42,func2);
+	printf("%s\n",s42);
+
+	char s43[4] = {'\0'};
+	printf("striteri(\"%s\",c->c+index)\t\t\t",s43);
+	ft_striteri(s43,func2);
+	printf("[%s]\n",s43);
+	printf("\n");
 }

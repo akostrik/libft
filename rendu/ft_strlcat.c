@@ -19,11 +19,9 @@
 // Returns the total length of the string it tried to create = 
 // the initial dst-length + src-length (to make truncation detection simple)
 // Replacements for strncat (more consistent, and less error prone)
-// Returns 
+// Returns ...
 
 #include <stddef.h>
-#include <stdio.h>
-#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
