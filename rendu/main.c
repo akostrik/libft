@@ -32,13 +32,14 @@ int main(void)
 {
 	printf("\t\t\t\t\t\t\t\t\t\tlibc\tmy_func\n");
 	char c = 'a';
+	[[fallthrough]]
 	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
 	c = 'A';
 	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
 	c = '#';
 	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
 	c = EOF;
-	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\t (EOF)\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
+	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
 	printf("\n");
 
 	c = '0';
@@ -46,7 +47,7 @@ int main(void)
 	c = '#';
 	printf("isdigit(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isdigit(c),ft_isdigit(c)); 
 	c = EOF;
-	printf("isdigit(%c\t%d\t%32b\t%8x)\t%d\t%d\t(EOF)\n",c,c,c,c,isdigit(c),ft_isdigit(c)); 
+	printf("isdigit(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isdigit(c),ft_isdigit(c)); 
 	printf("\n");
 
 	c = '0';
@@ -56,7 +57,7 @@ int main(void)
 	c = '#';
 	printf("isalnum(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalnum(c),ft_isalnum(c)); 
 	c = EOF;
-	printf("isalnum(%c\t%d\t%32b\t%8x)\t%d\t%d\t(EOF)\n",c,c,c,c,isalnum(c),ft_isalnum(c)); 
+	printf("isalnum(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isalnum(c),ft_isalnum(c)); 
 	printf("\n");
 
 	c = 0;
@@ -70,13 +71,13 @@ int main(void)
 	c = 127;
 	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = 128;
-	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t(0x80 = 128 no ascii) \n",c,c,c,c,isascii(c),ft_isascii(c)); 
+	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 0x80 = 128 no ascii\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = 0xF0;
-	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t(0xF0 = 256 no ascii)\n",c,c,c,c,isascii(c),ft_isascii(c)); 
+	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 0xF0 = 256 no ascii\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = 0xF1;
-	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t(0xF1 = 257 no ascii)\n",c,c,c,c,isascii(c),ft_isascii(c)); 
+	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 0xF1 = 257 no ascii\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = EOF;
-	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t(EOF no ascii)\n",c,c,c,c,isascii(c),ft_isascii(c)); 
+	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF no ascii\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	printf("\n");
 
 	c = 0;
@@ -92,11 +93,11 @@ int main(void)
 	c = 127;
 	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	c = 128;
-	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t(128 non permitted)\n",c,c,c,c,isprint(c),ft_isprint(c)); 
+	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 128 non permitted\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	c = 129;
-	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t(129 non permitted)\n",c,c,c,c,isprint(c),ft_isprint(c)); 
+	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 129 non permitted\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	c = EOF;
-	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t(EOF)\n",c,c,c,c,isprint(c),ft_isprint(c)); 
+	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	printf("\n");
 
 	printf("strlen(\"my str\")\t\t\t%ld\t\t\t\t%d\n",strlen("my str"),ft_strlen("my str")); 
@@ -142,7 +143,7 @@ int main(void)
 	n = 3;
 	printf("memset(NULL,'a',%d)\t\t\t",n);
 	printf("[%c]\t\t\t\t",(char*)ft_memset(s22,'a', n));
-	printf("[%c]\t\t\t(ft_memset returns NULL)\n",(char*)ft_memset(s21,'a', n));
+	printf("[%c]\t\t\t//ft_memset returns NULL\n",(char*)ft_memset(s21,'a', n));
 	printf("\n");
 
 
@@ -243,21 +244,21 @@ int main(void)
 	printf("memmove(%s,%s,%d)\t\t\t",s96,s96,n);
 	printf("[%s]\t\t\t\t",(char *)memmove(s96,s96,n));
 	char s97[4] = { 'A', 'B', 'C', '\0'};
-	printf("[%s]\t\tdest = src\n",(char *)ft_memmove(s97,s97,n));
+	printf("[%s]\t\t// dest = src\n",(char *)ft_memmove(s97,s97,n));
 
 	char dest1[5] = { 'A', 'B', 'C', 'D','\0'};
 	n = 3;
 	printf("memmove(%s,%s,%d)\t\t\t",dest1,&dest1[2],n);
 	printf("[%s]\t\t\t\t",(char *)memmove(dest1,&dest1[2],n));
 	char dest2[5] = { 'A', 'B', 'C', 'D','\0'};
-	printf("[%s]\t\tsrc0 inside dest, direct ordre\n",(char *)ft_memmove(dest2,&dest2[2],n));
+	printf("[%s]\t\t// src0 inside dest, direct ordre\n",(char *)ft_memmove(dest2,&dest2[2],n));
 
 	char src1[5] = { 'A', 'B', 'C', 'D','\0'};
 	n = 3;
 	printf("memmove(%s,%s,%d)\t\t\t",&src1[2],src1,n);
 	printf("[%s]\t\t\t\t",(char *)memmove(&src1[2],src1,n));
 	char src2[5] = { 'A', 'B', 'C', 'D','\0'};
-	printf("[%s]\t\tdest0 inside src, inverse ordre\n",(char *)ft_memmove(&src2[2],src2,n));
+	printf("[%s]\t\t// dest0 inside src, inverse ordre\n",(char *)ft_memmove(&src2[2],src2,n));
 	printf("\n");
 
 /*
@@ -560,7 +561,7 @@ int main(void)
 	printf("strdup(%s)\t\t\t\t[%s]\t\t\t\t[%s]\t\t\terrno = %s\n",str13,strdup(str13),ft_strdup(str13),errno);
 	printf("\n");
 
-	printf("strjoin(ABC,DE)\t\t\\t%s\n",ft_strjoin("ABC", "DE"));
+	printf("strjoin(ABC,DE)\t\t\t\t%s\n",ft_strjoin("ABC", "DE"));
 	printf("\n");
 
 	printf("substr(ABCDE,0,3)\t\t\t%s\n",ft_substr("ABCDE",0,3));
@@ -659,4 +660,17 @@ int main(void)
 	ft_striteri(s43,func2);
 	printf("[%s]\n",s43);
 	printf("\n");
+
+	c = 'A';
+	FILE *stdout; // 1
+	printf("putchar_fd(%c,%d)\t\t\t\t\t\t\t// stdout 1\n",c,stdout);
+	ft_putchar_fd(c,stdout);
+	FILE *stderr;	// 2
+	printf("putchar_fd(%c,%d)\t\t\t\t\t\t\t// Sstderr 2\n",c,stderr);
+	ft_putchar_fd(c,stderr);
+	FILE *stdin; // 0
+	printf("putchar_fd(%c,%d)\t\t\t\t\t\t\t// stdout 0\n",c,stdin);
+	ft_putchar_fd(c,stdin);
+	printf("\n");
+	
 }
