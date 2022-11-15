@@ -5,9 +5,9 @@
 // Écrit le caractère ’c’ sur le descripteur de fichier donné
 
 #include <stdio.h>
-#include <io.h>
+#include <unistd.h>
 
 void ft_putchar_fd(char c, int fd)
 {
-  write(fd,c,1);  
+  write(fd,&c,1);  
 }

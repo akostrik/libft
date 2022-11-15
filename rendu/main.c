@@ -659,18 +659,38 @@ int main(void)
 	printf("striteri(\"%s\",c->c+index)\t\t\t",s43);
 	ft_striteri(s43,func2);
 	printf("[%s]\n",s43);
-	printf("\n");
 
-	c = 'A';
-	FILE *stdout; // 1
-	printf("putchar_fd(%c,%d)\t\t\t\t\t\t\t// stdout 1\n",c,stdout);
-	ft_putchar_fd(c,stdout);
-	FILE *stderr;	// 2
-	printf("putchar_fd(%c,%d)\t\t\t\t\t\t\t// Sstderr 2\n",c,stderr);
-	ft_putchar_fd(c,stderr);
-	FILE *stdin; // 0
-	printf("putchar_fd(%c,%d)\t\t\t\t\t\t\t// stdout 0\n",c,stdin);
-	ft_putchar_fd(c,stdin);
+	printf("\n putchar_fd(A,1)\t\t\t\t\t\t\t\t// stdout 1\t\t\t\t");
+	ft_putchar_fd('A',1);
+	printf("\n putchar_fd(B,2)\t\t\t\t\t\t\t\t// stderr 2\t\t\t\t");
+	ft_putchar_fd('B',2);
+	printf("\n putchar_fd(C,0)\t\t\t\t\t\t\t\t// stdin 0\t\t\t\t");
+	ft_putchar_fd('C',0);
+	printf("\n  putchar_fd(D,3)");
+	ft_putchar_fd('D',3);
+	printf("\n\n");
+
+	printf("\n putstr_fd(ABC,1)");
+	ft_putstr_fd("ABC",1);
+	printf("\n\n");
+
+	printf("\nputendl_fd(ABC,1)");
+	ft_putendl_fd("ABC",1);
+	printf("\n\n");
+
+	printf("\n putnbr_fd(0,1)");
+	ft_putnbr_fd(0,1);
 	printf("\n");
-	
+	printf("\n putnbr_fd(1234,1)");
+	ft_putnbr_fd(1234,1);
+	printf("\n");
+	printf("\n putnbr_fd(-1234,1)");
+	ft_putnbr_fd(-1234,1);
+	printf("\n");
+	printf("\n putnbr_fd(INT_MAX,1)");
+	ft_putnbr_fd(INT_MAX,1);
+	printf("\n");
+	printf("\n putnbr_fd(INT_MIN,1)");
+	ft_putnbr_fd(INT_MIN,1);
+	printf("\n");
 }
