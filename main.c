@@ -8,13 +8,10 @@
 #include <stdlib.h>
 //#include <bsd/string.h>
 #include <errno.h>
-#include "libft.h"
+#include "submit/libft.h"
 
 // The standards : c = EOF / a value that is representable in unsigned char
 // If the argument c char, must be cast to unsigned char
-// isalpha - макрокоманда, почему?
-// определена только если isascii(c) равно true или c = EOF
-// isalpha доступна в UNIX, поддерживается стандартом ANSI C
 
 void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить memset etc
 {
