@@ -2,12 +2,12 @@
 The first project of 42 School
 Solo, about 70 hours
 
-```> cd submit/```
+```$ cd submit/```
 
-> make
+```$  make```
 
-> cd ..
+```$ cd ..```
 
-> gcc main.c -L./submit -lft
+```$ gcc main.c -L./submit -lft```
 
-> ./a.out
+```$ ./a.out```
