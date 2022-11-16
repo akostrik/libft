@@ -1,5 +1,8 @@
 # 42_libft
-The first project of 42 School
+A project of 42 School
+
+C
+
 Solo, about 70 hours
 
 ```$ cd submit/```
