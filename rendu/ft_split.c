@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/16 14:47:09 by akostrik          #+#    #+#             */
+/*   Updated: 2022/11/16 14:49:20 by akostrik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 // s: La chaîne de caractères à découper
 // c: Le caractère délimiteur
 // Return Le tableau de nouvelles chaînes de caractères résultant du découpage
 // Return NULL si l’allocation échoue
 // fonctions autorisées : malloc, free
-// Alloue (avec malloc(3)) et retourne un tableau de chaînes de caractères obtenu en séparant ’s’ à l’aide du caractère ’c’, utilisé comme délimiteur
+// Alloue (avec malloc(3)) et retourne un tableau de chaînes de caractères 
+// obtenu en séparant ’s’ à l’aide du caractère ’c’, utilisé comme délimiteur
 // Le tableau doit être terminé par NULL
 
 // free no used ???
@@ -29,7 +41,7 @@ static char	**tab_allocation(const char *s, char c)
 			i++;
 		nb_substrings++;
 	}
-	tab = (char **)malloc((nb_substrings + 1) * sizeof(char *)); 
+	tab = (char **)malloc((nb_substrings + 1) * sizeof(char *));
 	if (tab == NULL)
 		return (NULL);
 	return (tab);
@@ -48,28 +60,28 @@ static int	calc_length(int i, const char *s, char c, int separator_or_not)
 	return (length);
 }
 
-static char	*next_substring(const char *s, int first_pos_substring, int substr_length)
+static char	*next_substring(const char *s, int first_pos_substr, int substr_len)
 {
 	int		i;
-	char	*substring;
+	char	*substr;
 
-	substring = (char *)malloc((substr_length + 1) * sizeof(char));
-	if (substring == NULL)
+	substr = (char *)malloc((substr_len + 1) * sizeof(char));
+	if (substr == NULL)
 		return (NULL);
 	i = 0;
-	while (i < substr_length)
+	while (i < substr_len)
 	{
-		substring[i] = s[first_pos_substring + i];
+		substr[i] = s[first_pos_substr + i];
 		i++;
 	}
-	substring[i] = '\0';
-	return (substring);
+	substr[i] = '\0';
+	return (substr);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char	  **tab;
-	int		  num_word;
+	char	**tab;
+	int		num_word;
 	size_t	length;
 	size_t	i;
 
@@ -94,4 +106,3 @@ char **ft_split(char const *s, char c)
 	tab[num_word] = NULL;
 	return (tab);
 }
-
