@@ -33,7 +33,7 @@ int main(void)
 	c = '#';
 	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
 	c = EOF;
-	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
+	printf("isalpha(EOF\t%d\t%32b\t%8x)\t%d\t%d\t\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
 	printf("\n");
 
 	c = '0';
@@ -41,7 +41,7 @@ int main(void)
 	c = '#';
 	printf("isdigit(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isdigit(c),ft_isdigit(c)); 
 	c = EOF;
-	printf("isdigit(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isdigit(c),ft_isdigit(c)); 
+	printf("isdigit(EOF\t%d\t%32b\t%8x)\t%d\t%d\t\n",c,c,c,c,isdigit(c),ft_isdigit(c)); 
 	printf("\n");
 
 	c = '0';
@@ -51,13 +51,13 @@ int main(void)
 	c = '#';
 	printf("isalnum(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalnum(c),ft_isalnum(c)); 
 	c = EOF;
-	printf("isalnum(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isalnum(c),ft_isalnum(c)); 
+	printf("isalnum(EOF\t%d\t%32b\t%8x)\t%d\t%d\t\n",c,c,c,c,isalnum(c),ft_isalnum(c)); 
 	printf("\n");
 
 	c = 0;
 	printf("isascii([%c]\t%d\t%32b\t%8x)\t%d\t%d \n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = ' ';
-	printf("isascii([%c]\t%d\t%32b\t%8x)\t%d\t%d\t(space)\n",c,c,c,c,isascii(c),ft_isascii(c)); 
+	printf("isascii(' '\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = 'a';
 	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d \n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = 126;
@@ -71,7 +71,7 @@ int main(void)
 	c = 0xF1;
 	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 0xF1 = 257 no ascii\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	c = EOF;
-	printf("isascii(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF no ascii\n",c,c,c,c,isascii(c),ft_isascii(c)); 
+	printf("isascii(EOF\t%d\t%32b\t%8x)\t%d\t%d\t// no ascii\n",c,c,c,c,isascii(c),ft_isascii(c)); 
 	printf("\n");
 
 	c = 0;
@@ -87,16 +87,16 @@ int main(void)
 	c = 127;
 	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	c = 128;
-	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 128 non permitted\n",c,c,c,c,isprint(c),ft_isprint(c)); 
+	printf("isprint(128\t%d\t%32b\t%8x)\t%d\t%d\t// no permitted\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	c = 129;
-	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t// 129 non permitted\n",c,c,c,c,isprint(c),ft_isprint(c)); 
+	printf("isprint(129\t%d\t%32b\t%8x)\t%d\t%d\t// no permitted\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	c = EOF;
-	printf("isprint(%c\t%d\t%32b\t%8x)\t%d\t%d\t// EOF\n",c,c,c,c,isprint(c),ft_isprint(c)); 
+	printf("isprint(EOF\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	printf("\n");
 
 	printf("strlen(\"my str\")\t\t\t%ld\t\t\t\t%d\n",strlen("my str"),ft_strlen("my str")); 
 	printf("strlen(\"s\")\t\t\t\t%ld\t\t\t\t%d\n",strlen("s"),ft_strlen("s")); 
-	printf("strlen(\"\")\t\t\t\t%ld\t\t\t\t%d\n",strlen(""),ft_strlen("0")); 
+	printf("strlen(\"\")\t\t\t\t%ld\t\t\t\t%d\n",strlen(""),ft_strlen("")); 
 	printf("strlen(\"\\0\")\t\t\t\t%ld\t\t\t\t%d\n",strlen("\0"),ft_strlen("\0")); 
 	printf("strlen(\"\\n\")\t\t\t\t%ld\t\t\t\t%d\n",strlen("\n"),ft_strlen("\n")); 
 	printf("strlen(NULL)\t\t\t\tsegmentation fault\t\t%d\n",ft_strlen(NULL)); 
@@ -130,16 +130,12 @@ int main(void)
 	printf("[%s]\t\t\t\t",(char *)memset(s14, 'a', n));
 	printf("[%s]\n",(char *)ft_memset(s19,'a', n));
 
-	char *s22;
-	char *s21;
-	s22 = NULL;
-	s21 = NULL;
+	char *s21 = NULL;
 	n = 3;
 	printf("memset(NULL,'a',%d)\t\t\t",n);
-	printf("[%c]\t\t\t\t",(char*)ft_memset(s22,'a', n));
-	printf("[%c]\t\t\t//ft_memset returns NULL\n",(char*)ft_memset(s21,'a', n));
+	printf("segmentation fault\t\t");
+	printf("%d\t\t\t// returns NULL\n",(int)ft_memset(s21,'a', n));
 	printf("\n");
-
 
 	char s2[4] = { 'A', 'A', 'A', '\0'};
 	printf("bzero(%s)\t\t\t\t",s2);
@@ -524,7 +520,7 @@ int main(void)
   mem04 = ft_calloc(nmemb,size);
 	mem_to_str(mem04,nmemb,res_str);
 	printf("[%s]\t\t\t// wait .....\n",res_str);
-/*
+
 	void* mem05, *mem06;
 	nmemb = 1; 
 	size = INT_MAX; 
@@ -535,7 +531,7 @@ int main(void)
   mem06 = ft_calloc(nmemb,size);
 	mem_to_str(mem06,nmemb,res_str);
 	printf("[%s] \n",res_str);
-*/
+
 	void* mem07, *mem08;
 	nmemb = 2;   
 	size = INT_MAX; 
@@ -545,7 +541,7 @@ int main(void)
 	printf("[%s]\t\t\t\t",res_str);
   mem08 = ft_calloc(nmemb,size);
 	mem_to_str(mem08,nmemb,res_str);
-	printf("[%s]\t\t\t// quickly, calloc returns NULL\n",res_str);
+	printf("[%s]\t\t\t// calloc returns NULL\n",res_str);
 	printf("\n");
 
 	char *str12 = "abc";

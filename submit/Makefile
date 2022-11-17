@@ -14,7 +14,7 @@ all: ${NAME}
 
 ${NAME}: clean ${OBJS} 
 	gcc -c ${OBJS} -o ${NAME}
-	ar rc libft.a ${OBJS}
+	ar rc ${NAME} ${OBJS}
 
 clean:
 	rm -f ${OBJS}
