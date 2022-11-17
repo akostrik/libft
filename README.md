@@ -11,7 +11,7 @@ install bsd library
 
 ```$ cd ..```
 
-```$ gcc main.c -L./submit -lft```
+```$ gcc main.c -L./submit -lft -lbsd```
 
 ```$ ./a.out```
 
