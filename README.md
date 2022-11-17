@@ -5,6 +5,7 @@ Solo, about 70 hours
 
 How to run:
 install bsd library
+
 ```$ cd submit/```
 
 ```$  make```
