@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/17 14:32:49 by akostrik          #+#    #+#             */
+/*   Updated: 2022/11/17 14:38:58 by akostrik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 // везде проверить MAXINT NULL 0 
 // возвращаемые значения у меня и у libc не совпадают
 
@@ -24,7 +36,7 @@ void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить
 
 int main(void)
 {
-	printf("\t\t\t\t\t\t\t\t\t\tlibc\tmy_func\n");
+	printf("******************************************************************************* LIBC ** MY FUNCTION ***\n");
 	char c = 'a';
 	[[fallthrough]]
 	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalpha(c),ft_isalpha(c)); 
@@ -94,6 +106,7 @@ int main(void)
 	printf("isprint(EOF\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isprint(c),ft_isprint(c)); 
 	printf("\n");
 
+	printf("*************************************** LIBC ************************** MY FUNCTION ***\n");
 	printf("strlen(\"my str\")\t\t\t%ld\t\t\t\t%d\n",strlen("my str"),ft_strlen("my str")); 
 	printf("strlen(\"s\")\t\t\t\t%ld\t\t\t\t%d\n",strlen("s"),ft_strlen("s")); 
 	printf("strlen(\"\")\t\t\t\t%ld\t\t\t\t%d\n",strlen(""),ft_strlen("")); 

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/17 14:32:35 by akostrik          #+#    #+#              #
+#    Updated: 2022/11/17 14:34:53 by akostrik         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME    = libft.a
 SRCS1   = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c 
 SRCS2   = ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c
@@ -13,7 +25,7 @@ CFLAGS  = -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: clean ${OBJS} 
-	gcc -c ${OBJS} -o ${NAME}
+	gcc -c ${CFLAGS} -I ${HDRS} ${OBJS} -o ${NAME}
 	ar rc ${NAME} ${OBJS}
 
 clean:
