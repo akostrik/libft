@@ -8,9 +8,9 @@
 #include <string.h>
 #include <limits.h>
 #include <stdlib.h>
-//#include <bsd/string.h>
+#include <bsd/string.h>
 #include <errno.h>
-#include "libft.h"
+#include "submit/libft.h"
 
 // The standards : c = EOF / a value that is representable in unsigned char
 // If the argument c char, must be cast to unsigned char
@@ -261,7 +261,6 @@ int main(void)
 	printf("[%s]\t\t// dest0 inside src, inverse ordre\n",(char *)ft_memmove(&src2[2],src2,n));
 	printf("\n");
 
-/*
 	printf("strlcpy returns the total length of the string it tried to create = the length of src\n");
 	// poprobovqt korotkie stroki
 	char *src = "ABC";
@@ -403,7 +402,7 @@ int main(void)
 	ret = ft_strlcat(dst34, src, 10); 
 	printf("dst=\"%s\"\tret=%ld\n",dst34,ret); 
 	printf("\n");
-*/
+
 	printf("toupper('a')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'a'),ft_toupper((unsigned char)'a'));
 	printf("toupper('A')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'A'),ft_toupper((unsigned char)'A'));
 	printf("toupper('*')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'*'),ft_toupper((unsigned char)'*'));
@@ -455,7 +454,7 @@ int main(void)
 	printf("memcmp(\"\\0\",\"\\0\",2)\t\t\t%d\t\t\t\t%d\n",memcmp("\\0","\\0",2),ft_memcmp("\\0","\\0",2));
 	printf("memcmp(ABC,\"\\0\",1)\t\t\t%d\t\t\t\t%d\n",memcmp("ABC","\\0",1),ft_memcmp("ABC","\\0",1));
 	printf("\n");
-/*
+
 	char*	big = "ABCDE";
 	char*	little = "CD";
 	n = 5;
@@ -479,7 +478,7 @@ int main(void)
 	n = 5;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
 	printf("\n");
-*/
+
 	// попробовать больше maxint
 	char* str32 = "0";	
 	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str32,atoi(str32),ft_atoi(str32));
