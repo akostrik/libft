@@ -1,7 +1,5 @@
 // везде проверить MAXINT NULL 0 
 // возвращаемые значения у меня и у libc не совпадают
-// static functions
-// atoi #include "libft.h" не использовать функции из библиотеки
 
 #include <stdio.h>
 #include <ctype.h>
@@ -14,10 +12,6 @@
 
 // The standards : c = EOF / a value that is representable in unsigned char
 // If the argument c char, must be cast to unsigned char
-// isalpha - макрокоманда
-// определена только если isascii(c) равно true или c = EOF
-// isalpha доступна в UNIX, поддерживается стандартом ANSI C
-// почему ilsapha макрос
 
 void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить memset etc
 {
