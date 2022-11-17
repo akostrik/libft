@@ -6,7 +6,7 @@
 #    By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 14:32:35 by akostrik          #+#    #+#              #
-#    Updated: 2022/11/17 14:34:53 by akostrik         ###   ########.fr        #
+#    Updated: 2022/11/17 17:06:31 by akostrik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,11 @@ CFLAGS  = -Wall -Wextra -Werror
 
 all: ${NAME}
 
+.c.o:	gcc -c ${CFLAGS} -I ${HDRS} ${OBJS} -o ${NAME}
+
 ${NAME}: clean ${OBJS} 
-	gcc -c ${CFLAGS} -I ${HDRS} ${OBJS} -o ${NAME}
 	ar rc ${NAME} ${OBJS}
+#	gcc -c ${CFLAGS} -I ${HDRS} ${OBJS} -o ${NAME}
 
 clean:
 	rm -f ${OBJS}
