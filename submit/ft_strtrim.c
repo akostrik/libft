@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:12:27 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:58:21 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:21:29 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 // Alloue (avec malloc(3)) et retourne une copie de la chaîne ’s1’, sans les 
 // caractères spécifiés
 // dans ’set’ au début et à la fin de la chaîne de caractères
+
+// 1.OK 2.MOK 3.OK 4.MOK 5.OK 6.MOK 7.OK 8.MKO ==1574627== Invalid free() / delete / delete[] / realloc()
+// ==1574627==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+// ==1574627==    by 0x404A9B: main (ft_strtrim_test.cpp:33)
+// ==1574627==  Address 0x4050d7 is in a r-- mapped file /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out segment
+// ==1574627== 
+// 9.OK 10.MKO 11.OK 12.MOK 13.OK 14.MKO 15.OK 16.MOK 
 
 #include "libft.h"
 

@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 13:04:09 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:15:15 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ this)
 Crashes are almost always related to heap corruption, such as overflowing an 
 allocated chunk or freeing the same pointer twice
 */
+// tester ft_calloc       : 1.OK 2.MOK 3.OK 
+// void * p = ft_calloc(2, 2); char e[] = {0, 0, 0, 0};
+// 1) check(!memcmp(p, e, 4)); 2) mcheck(p, 4); free(p); showLeaks();
 
 #include "libft.h"
 

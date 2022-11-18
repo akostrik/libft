@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 22:09:54 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:58:01 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:08:13 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 // Returns a pointer to the first char of the first occurrence of little
 // Returns NULL if little occurs nowhere in big
 // Returns big if little is empty
+
+// teter
+// ft_strnstr      : 1.OK 2.OK 3.OK 4.OK 5.OK 6.OK ==1574372== Invalid read of size 1
+// ==1574372==    at 0x404DFB: little_is_here (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
+// ==1574372==    by 0x404D5F: ft_strnstr (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
+// ==1574372==    by 0x404AD9: main (ft_strnstr_test.cpp:28)
+// ==1574372==  Address 0x409000 is not stack'd, malloc'd or (recently) free'd
+// ==1574372== 
+// 7.SIGSEGV
+// 7) ft_strnstr(empty, "coucou", -1) == 0
 
 #include "libft.h"
 

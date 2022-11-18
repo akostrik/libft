@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 14:25:58 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:30:09 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 // the bytes in src are first copied into a tmp array that does not 
 // overlap src or dest, and the bytes are then copied from the tmp array to dest
 // Returns a pointer to dest
+//ft_memmove      : 1.OK 2.OK 3.OK 4.OK 
 
 #include "libft.h"
 

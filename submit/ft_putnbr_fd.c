@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:45:44 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 14:16:39 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:27:09 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 // fd: Le descripteur de fichier sur lequel écrire
 // fonctions autoirisées : write
 // Écrit l’entier ’n’ sur le descripteur de fichier donné
+
+// ft_putnbr_fd    : 1.OK 2.OK 3.OK 4.OK 5.OK 
 
 #include "libft.h"
 

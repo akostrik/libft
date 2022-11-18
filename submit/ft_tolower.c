@@ -6,9 +6,11 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:58:34 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:33:33 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_tolower      : 1.OK 2.OK 3.OK 4.OK 
 
 #include "libft.h"
 

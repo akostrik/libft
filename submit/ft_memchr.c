@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:31:15 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 13:19:58 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:30:40 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 // c and the bytes of the memory area are interpreted as unsigned char
 // Returns a pointer to the matching byte 
 // or NULL if the character does not occur
+// tester ft_memchr       : 1.OK 2.OK 3.OK 4.OK 5.OK 
 
 #include "libft.h"
 

@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 13:00:50 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:09:12 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ stopping at the first character which is not a valid digit
 Retourns the converted value or 0 on error
 If there were no digits at all, returns 0
 */
+
+// tester  1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.KO 13.OK 14.OK 15.OK 16.OK 17.OK 
+// 12) ft_atoi("-+42") == 0)
 
 #include "libft.h"
 

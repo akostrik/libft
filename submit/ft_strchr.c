@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 13:32:18 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:45:38 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@
 // The terminating null byte is considered part of the string, so that if c 
 // is specified as '\0', returns a pointer to the terminator
 
+// tester ft_strchr       : 1.OK 2.OK 3.OK 4.OK 5.KO
+// 	/* 5 */ check(ft_strchr(s, 't' + 256) == s); showLeaks();
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*p;
+	size_t	i;
 
-	p = (char *)s;
-	while (1) //
+	if (c == '\0')
+		return ((char *)&(s[ft_strlen(s)]));
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (*p == c)
-			return (p);
-		if (*p == '\0')
-			return (NULL);
-		p++;
+		if (s[i] == (char)c)
+			return ((char *)(&s[i]));
+		i++;
 	}
+	return (NULL);
 }

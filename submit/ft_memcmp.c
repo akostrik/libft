@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:54:25 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:31:00 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 // Do not use memcmp() to compare security critical data, such as cryptographic 
 // secrets, because the required CPU time depends on the number of equal bytes
 // Instead, a function that performs comparisons in constant time is required
+// tester ft_memcmp       : 1.OK 2.OK 3.OK 4.OK 5.OK 
 
 #include "libft.h"
 

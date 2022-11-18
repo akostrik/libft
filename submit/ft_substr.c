@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:08:08 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 15:24:59 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:18:44 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@
 // Alloue (avec malloc(3)) et retourne une chaîne de caractères issue de’s’
 // Cette nouvelle chaîne commence à l’index ’start’ 
 // et a pour taille maximale ’len’
+
+//  : 1.OK 2.MOK 3.OK 4.MOK ==1574542== Invalid read of size 1
+// ==1574542==    at 0x484FBD4: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+// ==1574542==    by 0x404A12: main (ft_substr_test.cpp:28)
+// ==1574542==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+// ==1574542== 
+// 5.SIGSEGV
+
+// char * s = ft_substr("tripouille", 0, 42000);
+// 1) check(!strcmp(s, "tripouille"));
+// 2) mcheck(s, strlen("tripouille") + 1); free(s); showLeaks();
+// s = ft_substr("tripouille", 1, 1);
+// 3) check(!strcmp(s, "r"));
+// 4) mcheck(s, 2); free(s); showLeaks();
+// s = ft_substr("tripouille", 100, 1);
+// 5) check(!strcmp(s, ""));
 
 #include "libft.h"
 

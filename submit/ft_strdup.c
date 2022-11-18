@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:56:12 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:13:19 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ On success, returns a pointer to the duplicated string
 Returns NULL if insufficient memory was available, errno = the cause of the error
 ERRORS : ENOMEM Insufficient memory available to allocate duplicate string.
 */
+
+// tester ft_strdup       : 1.KO 2.MKO 3.OK 4.MOK 
+// 1) char * s = ft_strdup((char*)"coucou"); check(!strcmp(s, "coucou"))
+// 2) mcheck(s, strlen("coucou") + 1); free(s);
+	
+// 3) s = ft_strdup((char*)"");  check(!strcmp(s, "")); // OK у меня
+// 4) s = ft_strdup((char*)"");  mcheck(s, 1); free(s);
 
 #include "libft.h"
 

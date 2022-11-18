@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 15:18:34 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:06:25 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@
 // Returns the total length of the string it tried to create = 
 // the initial dst-length + src-length (to make truncation detection simple)
 // Replacements for strncat (more consistent, and less error prone)
+
+//tester ft_strlcat      : 1.KO 2.KO 3.KO 4.KO 5.KO 6.OK 7.KO 8.KO 9.KO 10.OK 11.OK 12.OK 13.KO 14.KO 15.OK 16.OK 17.KO 
+// 1)  ft_strlcat(dest, src, 0) == strlen(src) && !strcmp(dest, "B")
+// 2)  ft_strlcat(dest, src, 1) == 10 && !strcmp(dest, "B")
+// 3)  ft_strlcat(dest, src, 3) == 3 + strlen(src) && !strcmp(dest, "BBBB")
+// 4)  ft_strlcat(dest, src, 6) == 13 && !strcmp(dest, "BBBBA")
+// 5)  ft_strlcat(dest, src, -1) == 14 && !strcmp(dest, "CCCCCAAAAAAAAA")
+// 7)  ft_strlcat(dest, src, 1) == strlen(src) && !strcmp(dest, "")
+// 8)  ft_strlcat(dest, src, 5) == strlen(src) + 5 && !strcmp(dest, "1111111111")
+// 9)  ft_strlcat(dest, src, 5) == strlen(src) + 5 && !strcmp(dest, "1111111111")
+// 13) ft_strlcat(dest, "123", 1) == 3 && !strcmp(dest, "")
+// 14) ft_strlcat(dest, "123", 2) == 3 && !strcmp(dest, "1")
+// 17) ft_strlcat(dest, "123", 0) == 3 && !strcmp(dest, "")
 
 #include "libft.h"
 

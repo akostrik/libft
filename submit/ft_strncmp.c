@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:15:02 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:57:57 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:57:55 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 // the difference between the values of the first pair of bytes (both 
 // interpreted as type unsigned char) that differ in the strings being compared
 // Glibc: return = the last compared byte in s1 - the last compared byte in s2
+
+//tester ft_strncmp      : 1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.OK 13.OK 14.OK 15.OK 16.OK 
 
 #include "libft.h"
 

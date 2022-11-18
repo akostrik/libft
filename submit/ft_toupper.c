@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:40:46 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:58:45 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:33:19 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 // The details of what constitutes an uppercase or lowercase letter depend on 
 // the locale. For example, the default C locale does not know about umlauts, 
 // so no conversion is done for them
+// tester ft_toupper      : 1.OK 2.OK 3.OK 4.OK 
 
 #include "libft.h"
 

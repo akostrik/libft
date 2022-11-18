@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:22:30 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 13:24:47 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:26:57 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 // fonctions autorisées : write
 // Écrit La chaîne de caractères ’s’ sur le descripteur de 
 // fichier donné suivie d’un retour à la ligne
+
+// tester ft_putendl_fd   : 1.OK
 
 #include "libft.h"
 

@@ -6,13 +6,14 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 12:54:31 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:29:54 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Copies n bytes from memory area src to memory area dest 
 // The memory areas must not overlap
 // Returns a pointer to dest
+// ft_memcpy       : 1.OK 2.OK 
 
 #include "libft.h"
 

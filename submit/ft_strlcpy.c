@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 14:33:55 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 19:15:41 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 // The check exists to prevent potential security problems in incorrect code
 // replacement for strncpy (more consistent, less error prone)
 
+// ft_strlcpy      : 1.OK 2.OK 3.OK 4.KO 5.OK 6.OK 7.OK 8.OK 9.OK 
+// 4) char src[] = "coucou";
+// char dest[10]; 
+// memset(dest, 'A', 10);
+// ft_strlcpy(dest, src, -1) == strlen(src) && !strcmp(src, dest) && dest[strlen(src) + 1] == 'A';
+
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t n)
@@ -31,17 +37,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 	size_t	i;
 	size_t	src_length;
 
+	src_length = ft_strlen(src);
 	i = 0;
-	while (src[i] != '\0')
-		i++;
-	src_length = i;
-	i = 0;
-	while ((int)i < (int)(n - 1) && src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
 	if (n > 0)
+	{
+		while (i < n - 1 && src[i] != '\0')
+		{
+			dst[i] = src[i];
+			i++;
+		}
 		dst[i] = '\0';
+	}
 	return (src_length);
 }

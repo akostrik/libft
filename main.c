@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:32:49 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 13:04:16 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 19:16:03 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,38 @@
 size_t
 Used for a count of bytes
 The result of the sizeof()
-C standard: an unsigned integer capable of storing [0, SIZE_MAX]
+C standard: an unsigned integer [0, SIZE_MAX]
 POSIX: the implementation shall support one or more programming environments 
 where the width of size_t is no greater than the width of the type long
-Printf(3), scanf(3) families: %zu or %zx 
+Printf(3), scanf(3) : %zu or %zx 
+Размер типа выбирается таким образом, чтобы в него можно было записать максимальный размер 
+теоретически возможного массива любого типа. Например, на 32-битной системе size_t 
+будет занимать 32-бита, на 64-битной - 64-бита. В переменную типа size_t может 
+быть безопасно помещен указатель. Исключение составляют указатели на функции 
+классов, но это особый случай. 
+Гарантированно может использоваться для адресной арифметики. 
+Позволяет писать переносимый код.
+Проблемы адресной арифметики стали активно проявлять себя с началом освоения 64-битных систем.
+size_t следует использовать в качестве индексов больших массивов, для хранения указателей и арифметики с указателями.
+Тип long в рамках 32-битных и 64-битных моделей данных, принятых в Linux, тоже работает. 
+Размер типа long совпадает с размером указателя. Но такой код несовместим с Windows. 
+Хотя в size_t можно помещать указатель, для этих целей лучше подходит uintptr_t. 
+size_t обычно применяется для счетчиков циклов, индексации массивов, 
+хранения размеров, адресной арифметики.
+Максимально допустимое значение size_t = SIZE_MAX.
 */
+
+// strlcat
+// strnstr
+// atoi
+// calloc
+// strdup
+// substr
+// strjoin
+// strtrim
+// split
+// itoa
+// strmapi
 
 #include "submit/libft.h"
 
@@ -266,58 +293,72 @@ int main(void)
 	printf("[%s]\t\t// dest0 inside src, inverse ordre\n",(char *)ft_memmove(&src2[2],src2,n));
 	printf("\n");
 
+
+	printf("strlcpy copies up to n - 1 characters from the NUL-terminated src to dst\n");
 	printf("strlcpy returns the total length of the string it tried to create = the length of src\n");
 	// poprobovqt korotkie stroki
 	char *src = "ABC";
-	char dst01[1];
-	char dst02[1];
-	printf("strlcpy(\"%s\",\"%s\",%d)\t\t\t",dst01,src,0); // dst01
+	char dst01[1] = {'\0'};
+	printf("strlcpy(\"%s\",\"%s\",%d)\t\t\t",dst01,src,0);
 	size_t ret = strlcpy(dst01, src, 0);
 	printf("dst=\"%s\"\t\tret=%ld\t\t",dst01,ret); 
+	char dst02[1] = {'\0'};
 	ret = ft_strlcpy(dst02, src, 0); 
 	printf("dst=\"%s\"\t\tret=%ld\n",dst02,ret); 
 	
-	char dst03[1];
-	char dst04[1];
+	char dst03[1] = {'\0'};
 	printf("strlcpy(\"%s\",\"%s\",1)\t\t\t",dst03,src);
 	ret = strlcpy(dst03, src, 1); 
 	printf("dst=\"%s\"\t\tret=%ld\t\t",dst03,ret); 
+	char dst04[1] = {'\0'};
 	ret = ft_strlcpy(dst04, src, 1); 
 	printf("dst=\"%s\"\t\tret=%ld\n",dst04,ret); 
 
-	char dst05[2];
-	char dst06[2];
+	char dst05[2] = {'\0','\0'};
+	char dst06[2] = {'\0','\0'};
 	printf("strlcpy(\"%s\",\"%s\",2)\t\t\t",dst05,src);
 	ret = strlcpy(dst05, src, 2); 
 	printf("dst=\"%s\"\t\tret=%ld\t\t",dst05,ret); 
 	ret = ft_strlcpy(dst06, src, 2); 
 	printf("dst=\"%s\"\t\tret=%ld\n",dst06,ret); 
 
-	char dst07[3];
-	char dst08[3];
+	char dst07[] = {'\0','\0','\0'};
+	char dst08[] = {'\0','\0','\0'};
 	printf("strlcpy(\"%s\",\"%s\",3)\t\t\t",dst07,src);
 	ret = strlcpy(dst07, src, 3); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst07,ret); 
 	ret = ft_strlcpy(dst08, src, 3); 
 	printf("dst=\"%s\"\tret=%ld\n",dst08,ret); 
 
-	char dst09[4];
-	char dst10[4];
+	char dst09[] = {'\0','\0','\0','\0'};
+	char dst10[] = {'\0','\0','\0','\0'};;
 	printf("strlcpy(\"%s\",\"%s\",4)\t\t\t",dst09,src);
 	ret = strlcpy(dst09, src, 4); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst09,ret); 
 	ret = ft_strlcpy(dst10, src, 4); 
 	printf("dst=\"%s\"\tret=%ld\n",dst10,ret); 
 
-	char dst11[5];
-	char dst12[5];
+	char dst11[] = {'\0','\0','\0','\0','\0'};
+	char dst12[] = {'\0','\0','\0','\0','\0'};
 	printf("strlcpy(\"%s\",\"%s\",5)\t\t\t",dst11,src);
 	ret = strlcpy(dst11, src, 5);
 	printf("dst=\"%s\"\tret=%ld\t\t",dst11,ret); 
 	ret = ft_strlcpy(dst12, src, 5); 
 	printf("dst=\"%s\"\tret=%ld\n",dst12,ret); 
-	printf("\n"); 
 
+	char dst111[10] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0','\0'};
+	char dst112[10] = {'\0','\0','\0','\0','\0','\0','\0','\0','\0','\0'};
+	char src100[] = "coucou";
+	n = -1;
+	printf("strlcpy(\"%s\",\"%s\",%d)\t\t\t",dst111,src100,n);
+	ret = strlcpy(dst111, src100, n);
+	printf("dst=\"%s\"\tret=%ld\t\t",dst111,ret); 
+	ret = ft_strlcpy(dst112, src100, n); 
+	printf("dst=\"%s\"\tret=%ld\n",dst112,ret); 
+// ft_strlcpy(dest, src, -1) == strlen(src) && !strcmp(src, dest) && dest[strlen(src) + 1] == 'A';
+
+/*
+	printf("\n"); 
 	printf("strlcat returns the total length of the string they tried to create = the initial length of dst + the length of src\n");
 	char dst13[8]; dst13[0]='D'; dst13[1]='E'; dst13[2]='F'; dst13[3]='\0';
 	char dst14[8]; dst14[0]='D'; dst14[1]='E'; dst14[2]='F'; dst14[3]='\0';
@@ -412,19 +453,28 @@ int main(void)
 	printf("toupper('A')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'A'),ft_toupper((unsigned char)'A'));
 	printf("toupper('*')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'*'),ft_toupper((unsigned char)'*'));
 	printf("tolower('A')\t\t\t\t%c\t\t\t\t%c\n",tolower((unsigned char)'A'),ft_tolower((unsigned char)'A'));
+	printf("\n");
 
 	printf("\n");
-	printf("strchr(ABC,'B')\t\t\t\t[%s]\t\t\t\t[%s]\n",strchr("ABC",'B'),ft_strchr("ABC",'B'));
-	printf("strchr(ABC,'C')\t\t\t\t[%s]\t\t\t\t[%s]\n",strchr("ABC",'C'),ft_strchr("ABC",'C'));
-	printf("strchr(ABC,'\\0')\t\t\t[%s]\t\t\t\t[%s]\n",strchr("ABC",'\0'),ft_strchr("ABC",'\0'));
-	printf("strchr(ABC,'D')\t\t\t\t%s\t\t\t\t%s\n",strchr("ABC",'D'),ft_strchr("ABC",'D'));
+	printf("strchr(ABC,'A')\t\t\t\t%s\t\t\t\t%s\n",       strchr("ABC",'A'),     ft_strchr("ABC",'A'));
+	printf("strchr(ABC,'A'+256)\t\t\t%s\t\t\t\t%s\n",     strchr("ABC",'A'+256), ft_strchr("ABC",'A'+256));
+	printf("strchr(ABC,'A'+128)\t\t\t%s\t\t\t\t%s\n",     strchr("ABC",'A'+128), ft_strchr("ABC",'A'+128));
+	printf("strchr(ABC,'B')\t\t\t\t%s\t\t\t\t%s\n",       strchr("ABC",'B'),     ft_strchr("ABC",'B'));
+	printf("strchr(ABC,'B'+256)\t\t\t%s\t\t\t\t%s\n",     strchr("ABC",'B'+256), ft_strchr("ABC",'B'+256));
+	printf("strchr(ABC,'C')\t\t\t\t%s\t\t\t\t%s\n",       strchr("ABC",'C'),     ft_strchr("ABC",'C'));
+	printf("strchr(ABC,'D')\t\t\t\t%s\t\t\t\t%s\n",       strchr("ABC",'D'),     ft_strchr("ABC",'D'));
+	printf("strchr(ABC,'\\0')\t\t\t[%s]\t\t\t\t[%s]\n",   strchr("ABC",'\0'),    ft_strchr("ABC",'\0'));
 
 	printf("\n");
-	printf("strrchr(ABC,'A')\t\t\t[%s]\t\t\t\t[%s]\n",strrchr("ABC",'A'),ft_strrchr("ABC",'A'));
-	printf("strrchr(AAC,'A')\t\t\t[%s]\t\t\t\t[%s]\n",strrchr("AAC",'A'),ft_strrchr("AAC",'A'));
-	printf("strrchr(AAA,'A')\t\t\t[%s]\t\t\t\t[%s]\n",strrchr("AAA",'A'),ft_strrchr("AAA",'A'));
-	printf("strrchr(AAA,'\\0')\t\t\t[%s]\t\t\t\t[%s]\n",strrchr("AAA",'\0'),ft_strrchr("AAA",'\0'));
-	printf("strrchr(ABC,'D')\t\t\t%s\t\t\t\t%s\n",strrchr("ABC",'D'),ft_strrchr("ABC",'D'));
+	printf("strrchr(ABC,'A')\t\t\t%s\t\t\t\t%s\n",        strrchr("ABC",'A'),    ft_strrchr("ABC",'A'));
+	printf("strrchr(ABC,'A'+256)\t\t\t%s\t\t\t\t%s\n",    strrchr("ABC",'A'+256),ft_strrchr("ABC",'A'+256));
+	printf("strrchr(ABC,'B')\t\t\t%s\t\t\t\t%s\n",        strrchr("ABC",'B'),    ft_strrchr("ABC",'B'));
+	printf("strrchr(ABC,'B'+256)\t\t\t%s\t\t\t\t%s\n",    strrchr("ABC",'B'+256),ft_strrchr("ABC",'B'+256));
+	printf("strrchr(ABC,'C')\t\t\t%s\t\t\t\t%s\n",        strrchr("ABC",'C'),    ft_strrchr("ABC",'C'));
+	printf("strrchr(ABC,'D')\t\t\t%s\t\t\t\t%s\n",        strrchr("ABC",'D'),    ft_strrchr("ABC",'D'));
+	printf("strrchr(ABC,'\\0')\t\t\t[%s]\t\t\t\t[%s]\n",  strrchr("ABC",'\0'),   ft_strrchr("ABC",'\0'));
+	printf("strrchr(AAA,'A')\t\t\t%s\t\t\t\t%s\n",        strrchr("AAA",'A'),    ft_strrchr("AAA",'A'));
+	printf("strrchr(AAC,'A')\t\t\t%s\t\t\t\t%s\n",        strrchr("AAC",'A'+256),ft_strrchr("AAC",'A'+256));
 
 	printf("\n");
 	printf("strncmp(ABE,ABC,3)\t\t\t%d\t\t\t\t%d\n",strncmp("ABE","ABC",3),ft_strncmp("ABE","ABC",3));
@@ -543,9 +593,9 @@ int main(void)
 	mem05 = calloc(nmemb,size);
 	mem_to_str(mem05,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
-  mem06 = ft_calloc(nmemb,size);
-	mem_to_str(mem06,nmemb,res_str);
-	printf("[%s] \n",res_str);
+  //mem06 = ft_calloc(nmemb,size);
+	//mem_to_str(mem06,nmemb,res_str);
+	//printf("[%s] \n",res_str);
 
 	void* mem07, *mem08;
 	nmemb = 2;   
@@ -697,4 +747,5 @@ int main(void)
 	printf("\n putnbr_fd(INT_MIN,1)");
 	ft_putnbr_fd(INT_MIN,1);
 	printf("\n");
+*/
 }
