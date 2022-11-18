@@ -27,3 +27,5 @@ if you do not have bsd library, you may comment the functions strlcpy, strlcat a
 ```$ gcc main.c -L./submit -lft```
 
 ```$ ./a.out```
+
+Tester: https://github.com/Tripouille/libftTester
