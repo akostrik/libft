@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:43:27 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 14:45:14 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:56:32 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // Chaque caractère est transmis par adresse à ’f’ afin d’être modifié si 
 // nécessaire
 
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:51:51 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 14:53:37 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:16:12 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 // l’entier ’n’ reçu en argument
 // Les nombres négatifs doivent être gérés
 
-#include <stdlib.h>
-#include <limits.h>
+#include "libft.h"
 
 static size_t	calculate_nb_bytes(int n)
 {

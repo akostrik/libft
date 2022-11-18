@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:50:57 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 14:50:58 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:56:48 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 // Alloue (avec malloc(3)) et retourne une nouvelle chaîne, résultat de 
 // la concaténation de s1 et s2
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:12:27 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 15:20:51 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:58:21 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 // caractères spécifiés
 // dans ’set’ au début et à la fin de la chaîne de caractères
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 static int	to_trim(char c, char const *set)
 {

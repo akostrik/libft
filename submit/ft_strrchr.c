@@ -6,14 +6,14 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 15:37:25 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:06:14 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Returns a pointer to the last occurrence of the character c in the string s
 // or NULL if the character is not found
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	p = (char *)s;
 	to_return = NULL;
-	while (1 == 1)
+	while (1) //
 	{
 		if (*p == c)
 			to_return = p;

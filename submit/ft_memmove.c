@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 17:45:11 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:25:58 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 // overlap src or dest, and the bytes are then copied from the tmp array to dest
 // Returns a pointer to dest
 
-#include <stddef.h>
+#include "libft.h"
 
-static int	src0_inside_src(void *dest, const void *src, size_t n)
+static int	src0_inside_dest(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
@@ -36,15 +36,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (src0_inside_src(dest, src, n) == 1)
+	if (src0_inside_dest(dest, src, n) == 1)
 	{
-		i = n;
+		i = n - 1; // изменения
 		while (1)
 		{
-			i--;
+			//printf("i=%ld, copy %c\n",i,*((char *)src + i)); //
 			*((char *)dest + i) = *((char *)src + i);
 			if (i == 0)
 				break ;
+			i--;
 		}
 	}
 	else

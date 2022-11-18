@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:47:09 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 14:49:20 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:15:12 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 
 // free no used ???
 
-#include <stdlib.h>
+#include "libft.h"
 
 static char	**tab_allocation(const char *s, char c)
 {
 	int		nb_substrings;
 	char	**tab;
-	int		i;
+	size_t	i; // changes
 
 	i = 0;
 	nb_substrings = 0;
@@ -47,9 +47,9 @@ static char	**tab_allocation(const char *s, char c)
 	return (tab);
 }
 
-static int	calc_length(int i, const char *s, char c, int separator_or_not)
+static size_t	calc_length(int i, const char *s, char c, int separator_or_not) // changes size_t
 {
-	int	length;
+	size_t	length;
 
 	length = 0;
 	while (s[i] != '\0' && (s[i] == c) == separator_or_not)
@@ -60,9 +60,9 @@ static int	calc_length(int i, const char *s, char c, int separator_or_not)
 	return (length);
 }
 
-static char	*next_substring(const char *s, int first_pos_substr, int substr_len)
+static char	*next_substring(const char *s, size_t first_pos_substr, size_t substr_len)
 {
-	int		i;
+	size_t	i; // changes int
 	char	*substr;
 
 	substr = (char *)malloc((substr_len + 1) * sizeof(char));
@@ -81,7 +81,7 @@ static char	*next_substring(const char *s, int first_pos_substr, int substr_len)
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	int		num_word;
+	size_t	num_word; // changes int size_t
 	size_t	length;
 	size_t	i;
 
@@ -96,7 +96,7 @@ char	**ft_split(char const *s, char c)
 		i += length;
 		if (s[i] == '\0')
 			break ;
-		length = calc_length(i, s, c, 0);
+		length = calc_length(i, s, c, 0); // убрать один аргумент
 		tab[num_word] = next_substring(s, i, length);
 		if (tab[num_word] == NULL)
 			return (NULL);

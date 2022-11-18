@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 22:09:54 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 18:03:24 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:58:01 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // Returns NULL if little occurs nowhere in big
 // Returns big if little is empty
 
-#include <stddef.h>
+#include "libft.h"
 
 static int	little_is_here(const char *big, const char *little, size_t n)
 {

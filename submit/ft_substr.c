@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:08:08 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 15:09:40 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:23:02 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,32 @@
 // Cette nouvelle chaîne commence à l’index ’start’ 
 // et a pour taille maximale ’len’
 
-#include <stddef.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	s_length;
-	char	*new_string;
-	size_t	new_string_length;
+	char	*new_str;
+	size_t	new_str_length;
 
 	s_length = 0;
 	while (s[s_length] != '\0')
 		s_length++;
 	if (start >= s_length)
 		return (NULL);
-	new_string_length = 0;
-	while (s[start + new_string_length] != '\0' && new_string_length < len)
-		new_string_length++;
-	new_string = (char *)malloc(new_string_length + 1);
-	if (new_string == NULL)
+	new_str_length = 0;
+	while (s[start + new_str_length] != '\0' && new_str_length < len)
+		new_str_length++;
+	new_str = (char *)malloc(new_str_length + 1);
+	if (new_str == NULL)
 		return (NULL);
 	i = 0;
-	while (i < new_string_length)
+	while (i < new_str_length)
 	{
-		new_string[i] = s[start + i];
+		new_str[i] = s[start + i];
 		i++;
 	}
-	new_string[i] = '\0';
-	return (new_string);
+	new_str[i] = '\0';
+	return (new_str);
 }

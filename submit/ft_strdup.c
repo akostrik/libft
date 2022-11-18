@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 15:35:23 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:56:12 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ Returns NULL if insufficient memory was available, errno = the cause of the erro
 ERRORS : ENOMEM Insufficient memory available to allocate duplicate string.
 */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {

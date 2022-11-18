@@ -6,24 +6,26 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:32:49 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/17 14:38:58 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:04:16 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// везде проверить MAXINT NULL 0 
+// проверить MAXINT NULL 0 
 // возвращаемые значения у меня и у libc не совпадают
-
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <bsd/string.h>
-#include <errno.h>
-#include "submit/libft.h"
-
 // The standards : c = EOF / a value that is representable in unsigned char
 // If the argument c char, must be cast to unsigned char
+
+/*
+size_t
+Used for a count of bytes
+The result of the sizeof()
+C standard: an unsigned integer capable of storing [0, SIZE_MAX]
+POSIX: the implementation shall support one or more programming environments 
+where the width of size_t is no greater than the width of the type long
+Printf(3), scanf(3) families: %zu or %zx 
+*/
+
+#include "submit/libft.h"
 
 void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить memset etc
 {

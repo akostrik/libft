@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:10:20 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 15:10:46 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:55:44 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 // fonctions autorisées : write
 // Écrit la chaîne de caractères ’s’ sur le descripteur de fichier donné.
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

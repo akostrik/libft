@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:54:41 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 14:55:23 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:57:49 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,14 @@
 // passée en argument pour créer
 // une nouvelle chaîne de caractères (avec malloc(3)) résultant des applications
 // successives de ’f’
+// the second argument of f ???
 
-// deux arguments de f ???
-
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*new_string;
-	size_t			i;
-	unsigned int	n;
+	char	*new_string;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -37,10 +35,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (new_string == NULL)
 		return (NULL);
 	i = 0;
-	n = 2;
 	while (s[i] != '\0')
 	{
-		new_string[i] = f(n, s[i]);
+		new_string[i] = f(i, s[i]);
 		i++;
 	}
 	new_string[i] = '\0';

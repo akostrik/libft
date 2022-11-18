@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 15:50:08 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:00:50 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,7 @@ Retourns the converted value or 0 on error
 If there were no digits at all, returns 0
 */
 
-#include <stdio.h>
-
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+#include "libft.h"
 
 static int	is_whitespace(char c)
 {
@@ -49,7 +42,7 @@ static int	is_whitespace(char c)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
+	size_t	i;
 	int	sign;
 	int	to_return;
 

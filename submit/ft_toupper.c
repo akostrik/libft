@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:40:46 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 15:58:07 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:58:45 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 // the locale. For example, the default C locale does not know about umlauts, 
 // so no conversion is done for them
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_toupper(int c)
 {

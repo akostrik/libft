@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 15:54:11 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:32:18 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 // The terminating null byte is considered part of the string, so that if c 
 // is specified as '\0', returns a pointer to the terminator
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
 	char	*p;
 
 	p = (char *)s;
-	while (1 == 1)
+	while (1) //
 	{
 		if (*p == c)
 			return (p);

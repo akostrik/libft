@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:51:15 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 14:51:33 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:55:06 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 // fonctions autorisées : write
 // Écrit le caractère ’c’ sur le descripteur de fichier donné
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

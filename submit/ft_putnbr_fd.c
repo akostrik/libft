@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:45:44 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/16 14:46:37 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:16:39 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 // fonctions autoirisées : write
 // Écrit l’entier ’n’ sur le descripteur de fichier donné
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 static void	ft_put_positiv_nbr_fd(int n, int fd)
 {

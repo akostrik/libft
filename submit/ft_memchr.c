@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:31:15 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 15:39:33 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:19:58 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // Returns a pointer to the matching byte 
 // or NULL if the character does not occur
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -28,7 +28,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (*p == (unsigned char)c)
-			return (p);
+			return (p); // (void)p ?
 		p++;
 		i++;
 	}

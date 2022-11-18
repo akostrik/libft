@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 17:55:28 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:04:09 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,7 @@ Crashes are almost always related to heap corruption, such as overflowing an
 allocated chunk or freeing the same pointer twice
 */
 
-/*
-size_t
-Used for a count of bytes
-The result of the sizeof()
-C standard: an unsigned integer capable of storing [0, SIZE_MAX]
-POSIX: the implementation shall support one or more programming environments 
-where the width of size_t is no greater than the width of the type long
-Printf(3), scanf(3) families: %zu or %zx 
-*/
-
-#include <stddef.h>
-#include <stdlib.h>
-#include <limits.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/14 12:45:51 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:53:05 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 // доступна в UNIX, поддерживается стандартом ANSI C
 
 // 	return (((unsigned)c | 32) - 'a' < 26);
+
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
