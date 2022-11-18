@@ -1,2 +1,4 @@
-submit/*.o
-submit/libft.a
+*.o
+libft.a
+tester/*
+tester
