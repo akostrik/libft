@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:32:49 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 19:16:03 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/18 19:25:24 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -355,11 +355,10 @@ int main(void)
 	printf("dst=\"%s\"\tret=%ld\t\t",dst111,ret); 
 	ret = ft_strlcpy(dst112, src100, n); 
 	printf("dst=\"%s\"\tret=%ld\n",dst112,ret); 
-// ft_strlcpy(dest, src, -1) == strlen(src) && !strcmp(src, dest) && dest[strlen(src) + 1] == 'A';
-
-/*
 	printf("\n"); 
-	printf("strlcat returns the total length of the string they tried to create = the initial length of dst + the length of src\n");
+
+	printf("strlcat concatenate dst + src, appends at most n-strlen(dst)-1 bytes\n"); 
+	printf("returns the total length of the string they tried to create = the initial length of dst + the length of src\n");
 	char dst13[8]; dst13[0]='D'; dst13[1]='E'; dst13[2]='F'; dst13[3]='\0';
 	char dst14[8]; dst14[0]='D'; dst14[1]='E'; dst14[2]='F'; dst14[3]='\0';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst13,src,0);
@@ -449,6 +448,7 @@ int main(void)
 	printf("dst=\"%s\"\tret=%ld\n",dst34,ret); 
 	printf("\n");
 
+/*
 	printf("toupper('a')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'a'),ft_toupper((unsigned char)'a'));
 	printf("toupper('A')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'A'),ft_toupper((unsigned char)'A'));
 	printf("toupper('*')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'*'),ft_toupper((unsigned char)'*'));
