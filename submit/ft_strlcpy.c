@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 19:15:41 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:03:24 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 // should not happen (as it means n is incorrect / dst is not a proper C string)
 // The check exists to prevent potential security problems in incorrect code
 // replacement for strncpy (more consistent, less error prone)
+// возвращает размер строки по адресу src
 
 // ft_strlcpy      : 1.OK 2.OK 3.OK 4.KO 5.OK 6.OK 7.OK 8.OK 9.OK 
 // 4) char src[] = "coucou";

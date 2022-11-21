@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:47:09 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 18:23:13 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:58:16 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,88 +20,6 @@
 // Le tableau doit être terminé par NULL
 
 // free no used ???
-
-/*
-ft_split        : 1.MKO 2.OK 3.MOK 4.OK 5.MOK 6.OK ==1574672== Invalid write of size 8
-==1574672==    at 0x40525B: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404A58: main (ft_split_test.cpp:38)
-==1574672==  Address 0x4de5198 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404A58: main (ft_split_test.cpp:38)
-==1574672== 
-7.OK ==1574672== Invalid read of size 8
-==1574672==    at 0x404A8E: main (ft_split_test.cpp:40)
-==1574672==  Address 0x4de5198 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404A58: main (ft_split_test.cpp:38)
-==1574672== 
-8.OK ==1574672== Invalid read of size 8
-==1574672==    at 0x40483B: freeTab(char**) (ft_split_test.cpp:15)
-==1574672==    by 0x404AAC: main (ft_split_test.cpp:41)
-==1574672==  Address 0x4de5198 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404A58: main (ft_split_test.cpp:38)
-==1574672== 
-9.OK 10.OK ==1574672== Invalid write of size 8
-==1574672==    at 0x40525B: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404B88: main (ft_split_test.cpp:52)
-==1574672==  Address 0x4de5328 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404B88: main (ft_split_test.cpp:52)
-==1574672== 
-11.MKO 12.OK ==1574672== Invalid read of size 8
-==1574672==    at 0x404BCF: main (ft_split_test.cpp:55)
-==1574672==  Address 0x4de5328 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404B88: main (ft_split_test.cpp:52)
-==1574672== 
-13.OK ==1574672== Invalid read of size 8
-==1574672==    at 0x40483B: freeTab(char**) (ft_split_test.cpp:15)
-==1574672==    by 0x404BED: main (ft_split_test.cpp:56)
-==1574672==  Address 0x4de5328 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404B88: main (ft_split_test.cpp:52)
-==1574672== 
-14.MOK 15.OK ==1574672== Invalid write of size 8
-==1574672==    at 0x40525B: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404C6F: main (ft_split_test.cpp:65)
-==1574672==  Address 0x4de5508 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404C6F: main (ft_split_test.cpp:65)
-==1574672== 
-16.MKO 17.OK ==1574672== Invalid read of size 8
-==1574672==    at 0x404CB6: main (ft_split_test.cpp:68)
-==1574672==  Address 0x4de5508 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404C6F: main (ft_split_test.cpp:65)
-==1574672== 
-18.OK ==1574672== Invalid read of size 8
-==1574672==    at 0x40483B: freeTab(char**) (ft_split_test.cpp:15)
-==1574672==    by 0x404CE0: main (ft_split_test.cpp:69)
-==1574672==  Address 0x4de5508 is 0 bytes after a block of size 8 alloc'd
-==1574672==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1574672==    by 0x40538A: tab_allocation (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x40516E: ft_split (in /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out)
-==1574672==    by 0x404C6F: main (ft_split_test.cpp:65)
-==1574672== 
-19.MOK 20.OK 21.OK 22.MOK 23.OK 24.OK 25.MKO 26.OK 27.MOK 28.OK 29.MOK 30.OK 31.MOK 32.OK 33.MOK 34.OK 35.MOK 36.OK 37.MOK 38.OK 39.MOK 40.OK 41.MOK 42.OK 
-*/
 
 #include "libft.h"
 

@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 14:32:49 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 19:25:24 by akostrik         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// calloc, strdup, substr, strjoin, strtrim, split, itoa, strmapi
 
-// проверить MAXINT NULL 0 
 // возвращаемые значения у меня и у libc не совпадают
 // The standards : c = EOF / a value that is representable in unsigned char
 // If the argument c char, must be cast to unsigned char
@@ -39,18 +28,6 @@ size_t обычно применяется для счетчиков цикло�
 хранения размеров, адресной арифметики.
 Максимально допустимое значение size_t = SIZE_MAX.
 */
-
-// strlcat
-// strnstr
-// atoi
-// calloc
-// strdup
-// substr
-// strjoin
-// strtrim
-// split
-// itoa
-// strmapi
 
 #include "submit/libft.h"
 
@@ -359,88 +336,90 @@ int main(void)
 
 	printf("strlcat concatenate dst + src, appends at most n-strlen(dst)-1 bytes\n"); 
 	printf("returns the total length of the string they tried to create = the initial length of dst + the length of src\n");
-	char dst13[8]; dst13[0]='D'; dst13[1]='E'; dst13[2]='F'; dst13[3]='\0';
-	char dst14[8]; dst14[0]='D'; dst14[1]='E'; dst14[2]='F'; dst14[3]='\0';
-	printf("strlcat(%s,%s,%d)\t\t\t",dst13,src,0);
-	ret = strlcat(dst13, src, 0); 
+	// char *src = "ABC";
+	char dst13[9]; memset(dst13, 0, 9); dst13[0] = 'D'; dst13[1] = 'D';
+	char dst14[9]; memset(dst14, 0, 9); dst14[0] = 'D'; dst14[1] = 'D';
+	n = 0;
+	printf("strlcat(%s,%s,%d)\t\t\t",dst13,src,n);
+	ret = strlcat(dst13, src, n); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst13,ret); 
-	ret = ft_strlcat(dst14, src, 0); 
+	ret = ft_strlcat(dst14, src, n); 
 	printf("dst=\"%s\"\tret=%ld\n",dst14,ret); 
 
-	char dst15[8]; dst15[0]='D'; dst15[1]='E'; dst15[2]='F'; dst15[3]='\0';
-	char dst16[8]; dst16[0]='D'; dst16[1]='E'; dst16[2]='F'; dst16[3]='\0';
+	char dst15[9]; memset(dst15, 0, 9); dst15[0] = 'D'; dst15[1] = 'D';
+	char dst16[9]; memset(dst16, 0, 9); dst16[0] = 'D'; dst16[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst15,src,1);
 	ret = strlcat(dst15, src, 1); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst15,ret); 
 	ret = ft_strlcat(dst16, src, 1); 
 	printf("dst=\"%s\"\tret=%ld\n",dst16,ret); 
 
-	char dst17[8]; dst17[0]='D'; dst17[1]='E'; dst17[2]='F'; dst17[3]='\0';
-	char dst18[8]; dst18[0]='D'; dst18[1]='E'; dst18[2]='F'; dst18[3]='\0';
+	char dst17[9]; memset(dst17, 0, 9); dst17[0] = 'D'; dst17[1] = 'D';
+	char dst18[9]; memset(dst18, 0, 9); dst18[0] = 'D'; dst18[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst17,src,2);
 	ret = strlcat(dst17, src, 2); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst17,ret); 
 	ret = ft_strlcat(dst18, src, 2); 
 	printf("dst=\"%s\"\tret=%ld\n",dst18,ret); 
 
-	char dst19[8]; dst19[0]='D'; dst19[1]='E'; dst19[2]='F'; dst19[3]='\0';
-	char dst20[8]; dst20[0]='D'; dst20[1]='E'; dst20[2]='F'; dst20[3]='\0';
+	char dst19[9]; memset(dst19, 0, 9); dst19[0] = 'D'; dst19[1] = 'D';
+	char dst20[9]; memset(dst20, 0, 9); dst20[0] = 'D'; dst20[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst19,src,3);
 	ret = strlcat(dst19, src, 3); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst19,ret); 
 	ret = ft_strlcat(dst20, src, 3); 
 	printf("dst=\"%s\"\tret=%ld\n",dst20,ret); 
 	
-	char dst21[8]; dst21[0]='D'; dst21[1]='E'; dst21[2]='F'; dst21[3]='\0';
-	char dst22[8]; dst22[0]='D'; dst22[1]='E'; dst22[2]='F'; dst22[3]='\0';
+	char dst21[9]; memset(dst21, 0, 9); dst21[0] = 'D'; dst21[1] = 'D';
+	char dst22[9]; memset(dst22, 0, 9); dst22[0] = 'D'; dst22[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst21,src,4);
 	ret = strlcat(dst21, src, 4); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst21,ret);
 	ret = ft_strlcat(dst22, src, 4); 
 	printf("dst=\"%s\"\tret=%ld\n",dst22,ret);
 
-	char dst23[8]; dst23[0]='D'; dst23[1]='E'; dst23[2]='F'; dst23[3]='\0';
-	char dst24[8]; dst24[0]='D'; dst24[1]='E'; dst24[2]='F'; dst24[3]='\0';
+	char dst23[9]; memset(dst23, 0, 9); dst23[0] = 'D'; dst23[1] = 'D';
+	char dst24[9]; memset(dst24, 0, 9); dst24[0] = 'D'; dst24[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst23,src,5);
 	ret = strlcat(dst23, src, 5); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst23,ret); 
 	ret = ft_strlcat(dst24, src, 5); 
 	printf("dst=\"%s\"\tret=%ld\n",dst24,ret); 
 
-	char dst25[8]; dst25[0]='D'; dst25[1]='E'; dst25[2]='F'; dst25[3]='\0';
-	char dst26[8]; dst26[0]='D'; dst26[1]='E'; dst26[2]='F'; dst26[3]='\0';
+	char dst25[9]; memset(dst25, 0, 9); dst25[0] = 'D'; dst25[1] = 'D';
+	char dst26[9]; memset(dst26, 0, 9); dst26[0] = 'D'; dst26[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst25,src,6);
 	ret = strlcat(dst25, src, 6); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst25,ret); 
 	ret = ft_strlcat(dst26, src, 6); 
 	printf("dst=\"%s\"\tret=%ld\n",dst26,ret); 
 
-	char dst27[8]; dst27[0]='D'; dst27[1]='E'; dst27[2]='F'; dst27[3]='\0';
-	char dst28[8]; dst28[0]='D'; dst28[1]='E'; dst28[2]='F'; dst28[3]='\0';
+	char dst27[9]; memset(dst27, 0, 9); dst27[0] = 'D'; dst27[1] = 'D';
+	char dst28[9]; memset(dst28, 0, 9); dst28[0] = 'D'; dst28[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst27,src,7);
 	ret = strlcat(dst27, src, 7); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst27,ret); 
 	ret = ft_strlcat(dst28, src, 7); 
 	printf("dst=\"%s\"\tret=%ld\n",dst28,ret); 
 
-	char dst29[8]; dst29[0]='D'; dst29[1]='E'; dst29[2]='F'; dst29[3]='\0';
-	char dst30[8]; dst30[0]='D'; dst30[1]='E'; dst30[2]='F'; dst30[3]='\0';
+	char dst29[9]; memset(dst29, 0, 9); dst29[0] = 'D'; dst29[1] = 'D';
+	char dst30[9]; memset(dst30, 0, 9); dst30[0] = 'D'; dst30[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst29,src,8);
 	ret = strlcat(dst29, src, 8); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst29,ret); 
 	ret = ft_strlcat(dst30, src, 8); 
 	printf("dst=\"%s\"\tret=%ld\n",dst30,ret); 
 
-	char dst31[9]; dst31[0]='D'; dst31[1]='E'; dst31[2]='F'; dst31[3]='\0';
-	char dst32[9]; dst32[0]='D'; dst32[1]='E'; dst32[2]='F'; dst32[3]='\0';
+	char dst31[9]; memset(dst31, 0, 9); dst31[0] = 'D'; dst31[1] = 'D';
+	char dst32[9]; memset(dst32, 0, 9); dst32[0] = 'D'; dst32[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst31,src,9);
 	ret = strlcat(dst31, src, 9); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst31,ret); 
 	ret = ft_strlcat(dst32, src, 9); 
 	printf("dst=\"%s\"\tret=%ld\n",dst32,ret); 
 
-	char dst33[10]; dst33[0]='D'; dst33[1]='E'; dst33[2]='F'; dst33[3]='\0';
-	char dst34[10]; dst34[0]='D'; dst34[1]='E'; dst34[2]='F'; dst34[3]='\0';
+	char dst33[9]; memset(dst33, 0, 9); dst33[0] = 'D'; dst33[1] = 'D';
+	char dst34[9]; memset(dst34, 0, 9); dst34[0] = 'D'; dst34[1] = 'D';
 	printf("strlcat(%s,%s,%d)\t\t\t",dst33,src,10);
 	ret = strlcat(dst33, src, 10); 
 	printf("dst=\"%s\"\tret=%ld\t\t",dst33,ret); 
@@ -448,7 +427,6 @@ int main(void)
 	printf("dst=\"%s\"\tret=%ld\n",dst34,ret); 
 	printf("\n");
 
-/*
 	printf("toupper('a')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'a'),ft_toupper((unsigned char)'a'));
 	printf("toupper('A')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'A'),ft_toupper((unsigned char)'A'));
 	printf("toupper('*')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'*'),ft_toupper((unsigned char)'*'));
@@ -514,27 +492,43 @@ int main(void)
 	char*	little = "CD";
 	n = 5;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
+	big = "";
+	little = "CD";
+	n = 5;
+	printf("strnstr(%s,%s,%d)\t\t\t\t%p\t\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
+	big = "";
+	little = "CD";
+	n = -1;
+	printf("strnstr(%s,%s,%d)\t\t\t\t%p\t\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
+	big = "ABCDE";
 	little = "DE";
 	n = 5;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
 	little = "";
 	n = 5;
 	printf("strnstr(%s,\"%s\",%d)\t\t\t%p\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
 	little = "AB";
 	n = 5;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
 	little = "BC";
 	n = 3;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
 	little = "BC";
 	n = 2;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
+
 	little = "ZW";
 	n = 5;
 	printf("strnstr(%s,%s,%d)\t\t\t%p\t\t\t\t%p\n",big,little,n,strnstr(big,little,n),ft_strnstr(big,little,n));
 	printf("\n");
 
-	// попробовать больше maxint
 	char* str32 = "0";	
 	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t\t%d\n",str32,atoi(str32),ft_atoi(str32));
 	char* str1 = "42";	
@@ -559,12 +553,16 @@ int main(void)
 	printf("atoi(\"%s\")\t\t\t%d\t\t\t%d\n",str10,atoi(str10),ft_atoi(str10));
 	char* str11 = "-2147483649";	
 	printf("atoi(\"%s\")\t\t\t%d\t\t\t%d\n",str11,atoi(str11),ft_atoi(str11));
+	str11 = "-+42";	
+	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t%d\n",str11,atoi(str11),ft_atoi(str11));
+	str11 = "-++42";	
+	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t%d\n",str11,atoi(str11),ft_atoi(str11));
 	printf("\n");
 
 	// ft_calloc попробовать огромные оба параметра
 	void* mem01, *mem02;
-	size_t nmemb = 5;
-	size_t size = 1; // 1 byte
+	size_t nmemb = 2;
+	size_t size = 2; // 2 byte
 	char res_str[100]; // 100 !
 	printf("calloc(%ld,%ld)\t\t\t\t",nmemb,size);
 	mem01 = calloc(nmemb,size);
@@ -573,7 +571,18 @@ int main(void)
   mem02 = ft_calloc(nmemb,size);
 	mem_to_str(mem02,nmemb,res_str);
 	printf("[%s]\n",res_str);
-	// free () ?
+	free (mem01);
+	printf("mem01 free\n");
+	free (mem02);
+	printf("mem02 free\n");
+	char* mem100 = (char*)malloc(0);
+	printf("\nsizeof = %zu\n",sizeof(mem100)/sizeof(mem100[0]));
+	mem100 = (char*)malloc(2);
+	printf("\nsizeof = %zu\n",sizeof(mem100)/sizeof(mem100[0]));
+	mem100 = (char*)malloc(50);
+	printf("sizeof = %zu\n",sizeof(mem100)/sizeof(mem100[0]));
+	char mem101[50];
+	printf("sizeof = %zu\n",sizeof(mem101)/sizeof(mem101[0]));
 
 	void* mem03, *mem04;
 	nmemb = 5;
@@ -585,7 +594,12 @@ int main(void)
   mem04 = ft_calloc(nmemb,size);
 	mem_to_str(mem04,nmemb,res_str);
 	printf("[%s]\t\t\t// wait .....\n",res_str);
+	free (mem03);
+	printf("mem03 free\n");
+	free (mem04);
+	printf("mem04 free\n");
 
+/*
 	void* mem05, *mem06;
 	nmemb = 1; 
 	size = INT_MAX; 
@@ -593,9 +607,13 @@ int main(void)
 	mem05 = calloc(nmemb,size);
 	mem_to_str(mem05,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
-  //mem06 = ft_calloc(nmemb,size);
-	//mem_to_str(mem06,nmemb,res_str);
-	//printf("[%s] \n",res_str);
+  mem06 = ft_calloc(nmemb,size);
+	mem_to_str(mem06,nmemb,res_str);
+	printf("[%s] \n",res_str);
+	free (mem05);
+	printf("mem05 free\n");
+	free (mem06);
+	printf("mem06 free\n");
 
 	void* mem07, *mem08;
 	nmemb = 2;   
@@ -607,15 +625,22 @@ int main(void)
   mem08 = ft_calloc(nmemb,size);
 	mem_to_str(mem08,nmemb,res_str);
 	printf("[%s]\t\t\t// calloc returns NULL\n",res_str);
+	free (mem07);
+	printf("mem07 free\n");
+	free (mem08);
+	printf("mem08 free\n");
 	printf("\n");
-
-	char *str12 = "abc";
+*/
+	char *str12 = "coucou";
 	printf("strdup(%s)\t\t\t\t%s\t\t\t\t%s\t\t\terrno = %s\n",str12,strdup(str12),ft_strdup(str12),errno);
 	char *str13 = "";
 	printf("strdup(%s)\t\t\t\t[%s]\t\t\t\t[%s]\t\t\terrno = %s\n",str13,strdup(str13),ft_strdup(str13),errno);
 	printf("\n");
 
 	printf("strjoin(ABC,DE)\t\t\t\t%s\n",ft_strjoin("ABC", "DE"));
+	printf("strjoin(\"\",DE)\t\t\t\t%s\n",ft_strjoin("", "DE"));
+	printf("strjoin(ABC,\"\")\t\t\t\t%s\n",ft_strjoin("ABC", ""));
+	printf("strjoin(\"\",\"\")\t\t\t\t[%s]\n",ft_strjoin("", ""));
 	printf("\n");
 
 	printf("substr(ABCDE,0,3)\t\t\t%s\n",ft_substr("ABCDE",0,3));
@@ -626,6 +651,8 @@ int main(void)
 	printf("substr(ABCDE,5,3)\t\t\t%s\n",ft_substr("ABCDE",5,3));
 	printf("substr(ABCDE,0,5)\t\t\t%s\n",ft_substr("ABCDE",0,5));
 	printf("substr(ABCDE,0,10)\t\t\t%s\n",ft_substr("ABCDE",0,10));
+	printf("substr(\"\",0,10)\t\t\t\t%s\n",ft_substr("",0,10));
+	printf("substr(ABCDE,0,0)\t\t\t[%s]\n",ft_substr("ABCDE",0,0));
 	printf("\n");
 
 	printf("strtrim({(ABCDE)},\"_(){}\")\t\t%s\n",ft_strtrim("{(ABCDE)}","_(){}"));
@@ -635,8 +662,10 @@ int main(void)
 	printf("strtrim({(___)}A_,\"_(){}\")\t\t%s\n",ft_strtrim("{(___)}A_","_(){}"));
 	printf("strtrim({(ABCDE)},\"\")\t\t\t%s\n",ft_strtrim("{(ABCDE)}",""));
 	printf("strtrim(\"\",\"_()}\")\t\t\t[%s]\n",ft_strtrim("","_()}"));
+	printf("strtrim(\"\",\"\")\t\t\t\t[%s]\n",ft_strtrim("",""));
+	printf("strtrim(\"   xxx   xxx\",\" x\")\t\t[%s]\n",ft_strtrim("   xxx   xxx"," x"));
 	printf("\n");
-
+/*
 	char *str = "__A__B__C__";
 	char	separator = '_';
 	char	**tab = ft_split(str, separator);

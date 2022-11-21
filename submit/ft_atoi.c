@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 18:09:12 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:17:27 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	if (str[i] == '-')
 	{
+		if (!ft_isdigit(str[i + 1]))
+			return (0);
 		sign = -1;
 		i++;
 	}

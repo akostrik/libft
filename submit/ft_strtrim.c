@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:12:27 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/18 18:21:29 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:50:37 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,6 @@ static int	to_trim(char c, char const *set)
 	return (0);
 }
 
-static char	*null_terminated(char *str, size_t len)
-{
-	str[len] = '\0';
-	return (str);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
@@ -60,8 +54,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (to_trim(s1[new_str_start], set) == 1 && s1[new_str_start] != '\0')
 		new_str_start++;
 	new_str_end = 0;
-	while (s1[new_str_end] != '\0')
-		new_str_end++;
+	new_str_end = ft_strlen(s1);
 	while (to_trim(s1[new_str_end], set) == 1 && new_str_end > 0)
 		new_str_end--;
 	if (new_str_start > new_str_end)
@@ -75,5 +68,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		new_str[i] = s1[new_str_start + i];
 		i++;
 	}
-	return (null_terminated(new_str, i));
+	new_str[i] = '\0';
+	return (new_str);
 }
