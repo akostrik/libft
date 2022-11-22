@@ -38,21 +38,6 @@ static void print_list(t_text_portion **list)
 
 #include "libft.h"
 
-static size_t	list_size(t_text_portion *list)
-{
-	t_text_portion	*cour;
-	size_t			i;
-
-	cour = list;
-	i = 0;
-	while (cour != NULL)
-	{
-		cour = cour -> next;
-		i++;
-	}
-	return (i);
-}
-
 static int	add_to_end(t_text_portion **lst, size_t start_text, size_t len_text)
 	{
 	t_text_portion	*new_elt;
@@ -61,8 +46,8 @@ static int	add_to_end(t_text_portion **lst, size_t start_text, size_t len_text)
 	new_elt = (t_text_portion *)malloc(sizeof(t_text_portion));
 	if (new_elt == NULL)
 		return (0);
-	new_elt -> start_text_portion = start_text_portion;
-	new_elt -> len_text_portion = len_text_portion;
+	new_elt -> start_text_portion = start_text;
+	new_elt -> len_text_portion = len_text;
 	new_elt -> next = NULL;
 	if (*lst == NULL)
 		*lst = new_elt;
@@ -80,7 +65,6 @@ static t_text_portion	**creat_list(char const *s, char c)
 {
 	t_text_portion	**list;
 	size_t			start_t;
-	size_t			len_t;
 	size_t			i;
 
 	list = (t_text_portion **)malloc(sizeof(t_text_portion *));
@@ -120,31 +104,18 @@ static void	destroy_list(t_text_portion ***list)
 	free(*list);
 }
 
-static char	create-tab()
+static char	**create_tab(t_text_portion *list, size_t len_list, char const *s)
 {
-
-}
-
-char	**ft_split(char const *s, char c)
-{
-	t_text_portion	***list;
-	t_text_portion	*cour;
-	size_t			len_list;
 	size_t			i;
 	size_t			j;
+	t_text_portion	*cour;
 	char			**tab;
-
-	list = (t_text_portion ***)malloc(sizeof(t_text_portion **));
-	*list = creat_list(s, c);
-	if (*list == NULL)
-		return (NULL);
-	len_list = list_size(**list);
 
 	tab = (char **)malloc((len_list + 1) * sizeof(char *));
 	if (tab == NULL)
 		return (NULL);
 	i = 0;
-	cour = **list;
+	cour = list;
 	while (i < len_list)
 	{
 		tab[i] = (char *)malloc(cour -> len_text_portion + 1);
@@ -160,6 +131,30 @@ char	**ft_split(char const *s, char c)
 		i++;
 		cour = cour -> next;
 	}
+	return (tab);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	t_text_portion	***list;
+	t_text_portion	*cour;
+	size_t			len_list;
+	char			**tab;
+
+	list = (t_text_portion ***)malloc(sizeof(t_text_portion **));
+	*list = creat_list(s, c);
+	if (*list == NULL)
+		return (NULL);
+	cour = **list;
+	len_list = 0;
+	while (cour != NULL)
+	{
+		cour = cour -> next;
+		len_list++;
+	}
+	tab = create_tab(**list, len_list, s);
+	if (tab == NULL)
+		return (NULL);
 	destroy_list(list);
 	return (tab);
 }
