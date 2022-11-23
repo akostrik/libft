@@ -23,9 +23,28 @@
 static void print_list(t_text_portion **list)
 {
 	t_text_portion	*cour;
+	size_t		len;
 
-	printf("\nlist list = %p *list = %p of the length %zu\n",list,*list,
-	list_size(*list));
+	len = 0;
+	if (list == NULL)
+	{
+		printf("list %p -> %p -> NULL\n",&list,list);
+		return ;
+	}
+	if (*list == NULL)
+	{
+		printf("list %p -> %p -> %p\n",&list,list,*list);
+		return ;
+	}
+	cour = *list;
+	while (cour != NULL)
+	{
+		cour = cour -> next;
+		len++;
+	}
+	printf("list %p -> %p -> %p -> (%zu,%zu),
+	len = %zu\n",&list,list,*list,(**list).start_text_portion,
+	(**list).len_text_portion,len);
 	cour = *list;
 	while(cour != NULL)
 	{
@@ -61,7 +80,7 @@ static int	add_to_end(t_text_portion **lst, size_t start_text, size_t len_text)
 	return (1);
 }
 
-static t_text_portion	**creat_list(char const *s, char c)
+static t_text_portion	**create_list(char const *s, char c)
 {
 	t_text_portion	**list;
 	size_t			start_t;
@@ -127,8 +146,7 @@ static char	**create_tab(t_text_portion *list, size_t len_list, char const *s)
 			tab[i][j] = s[cour -> start_text_portion + j];
 			j++;
 		}
-		tab[i][j] = '\0';
-		i++;
+		tab[i++][j] = '\0';
 		cour = cour -> next;
 	}
 	return (tab);
@@ -142,7 +160,10 @@ char	**ft_split(char const *s, char c)
 	char			**tab;
 
 	list = (t_text_portion ***)malloc(sizeof(t_text_portion **));
-	*list = creat_list(s, c);
+	if (list == NULL)
+		return (NULL);
+	*list = create_list(s, c);
+	print_list(*list);
 	if (*list == NULL)
 		return (NULL);
 	cour = **list;
@@ -156,5 +177,6 @@ char	**ft_split(char const *s, char c)
 	if (tab == NULL)
 		return (NULL);
 	destroy_list(list);
+	free(list);
 	return (tab);
 }

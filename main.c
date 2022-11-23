@@ -674,6 +674,7 @@ int main(void)
 	char	separator;
 	char	**tab;
 	int i;
+/*
 	str = "_A__B__CD";
 	separator = '_';
 	tab = ft_split(str, separator);
@@ -709,7 +710,17 @@ int main(void)
 		printf("[%s] ", tab[i]);
 	if (tab[i] == NULL)
 		printf("NULL\n");
+*/
+	str = "  ";
+	separator = ' ';
+	tab = ft_split(str, separator);
+	printf("split(\"[%s]\",'%c')\t\t\t\t",str,separator);
+	for (i = 0; tab[i] != NULL; i++)
+		printf("[%s] ", tab[i]);
+	if (tab[i] == NULL)
+		printf("NULL\n");
 
+/*
 	str = "  tripouille  42  ";
 	separator = ' ';
 	tab = ft_split(str, separator);
@@ -746,7 +757,7 @@ int main(void)
 	n = -1;
 	printf("itoa(%d)\t\t\t\t%s\n",n,ft_itoa(n));
 	printf("\n");
-/*
+
 	char *func(unsigned int n, char c)
 	{
 		return (c+n);
