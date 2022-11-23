@@ -1,8 +1,6 @@
 # 42_libft
 A project of 42 School, Solo, about 70 hours
 
-NOT FINISHED
-
 How to run:
 install bsd library
 
