@@ -2,4 +2,6 @@ workspace/*.o
 workspace/libft.a
 tester/*
 tester
+workspace_to_submit
+workspace_to_submit/*
 a.out
