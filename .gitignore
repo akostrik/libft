@@ -1,6 +1,5 @@
-submit/*.o
-submit/libft.a
-submit1/*.o
-submit1/libft.a
+workspace/*.o
+workspace/libft.a
 tester/*
 tester
+a.out
