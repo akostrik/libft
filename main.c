@@ -44,7 +44,6 @@ int main(void)
 {
 	printf("******************************************************************************* LIBC ** MY FUNCTION ***\n");
 	char c = 'a';
-	[[fallthrough]]
 	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalpha(c),ft_isalpha(c));
 	c = 'A';
 	printf("isalpha(%c\t%d\t%32b\t%8x)\t%d\t%d\n",c,c,c,c,isalpha(c),ft_isalpha(c));
@@ -113,12 +112,12 @@ int main(void)
 	printf("\n");
 
 	printf("*************************************** LIBC ************************** MY FUNCTION ***\n");
-	printf("strlen(\"my str\")\t\t\t%ld\t\t\t\t%d\n",strlen("my str"),ft_strlen("my str"));
-	printf("strlen(\"s\")\t\t\t\t%ld\t\t\t\t%d\n",strlen("s"),ft_strlen("s"));
-	printf("strlen(\"\")\t\t\t\t%ld\t\t\t\t%d\n",strlen(""),ft_strlen(""));
-	printf("strlen(\"\\0\")\t\t\t\t%ld\t\t\t\t%d\n",strlen("\0"),ft_strlen("\0"));
-	printf("strlen(\"\\n\")\t\t\t\t%ld\t\t\t\t%d\n",strlen("\n"),ft_strlen("\n"));
-	printf("strlen(NULL)\t\t\t\tsegmentation fault\t\t%d\n",ft_strlen(NULL));
+	printf("strlen(\"my str\")\t\t\t%ld\t\t\t\t%zu\n",strlen("my str"),ft_strlen("my str"));
+	printf("strlen(\"s\")\t\t\t\t%ld\t\t\t\t%zu\n",strlen("s"),ft_strlen("s"));
+	printf("strlen(\"\")\t\t\t\t%ld\t\t\t\t%zu\n",strlen(""),ft_strlen(""));
+	printf("strlen(\"\\0\")\t\t\t\t%ld\t\t\t\t%zu\n",strlen("\0"),ft_strlen("\0"));
+	printf("strlen(\"\\n\")\t\t\t\t%ld\t\t\t\t%zu\n",strlen("\n"),ft_strlen("\n"));
+	printf("strlen(NULL)\t\t\t\tsegmentation fault\t\t%zu\n",ft_strlen(NULL));
 	printf("\n");
 
 	char s1[4] = { 'A', 'A', 'A', '\0'};
@@ -153,7 +152,7 @@ int main(void)
 	n = 3;
 	printf("memset(NULL,'a',%d)\t\t\t",n);
 	printf("segmentation fault\t\t");
-	printf("%d\t\t\t// returns NULL\n",(int)ft_memset(s21,'a', n));
+	printf("%p\t\t\t// returns NULL\n",ft_memset(s21,'a', n));
 	printf("\n");
 
 	char s2[4] = { 'A', 'A', 'A', '\0'};
@@ -566,7 +565,7 @@ int main(void)
 	mem01 = calloc(nmemb,size);
 	mem_to_str(mem01,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
-  mem02 = ft_calloc(nmemb,size);
+	mem02 = ft_calloc(nmemb,size);
 	mem_to_str(mem02,nmemb,res_str);
 	printf("[%s]\n",res_str);
 	free (mem01);
@@ -589,14 +588,14 @@ int main(void)
 	mem03 = calloc(nmemb,size);
 	mem_to_str(mem03,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
-  mem04 = ft_calloc(nmemb,size);
+	mem04 = ft_calloc(nmemb,size);
 	mem_to_str(mem04,nmemb,res_str);
 	printf("[%s]\t\t\t// wait .....\n",res_str);
 	free (mem03);
 	printf("mem03 free\n");
 	free (mem04);
 	printf("mem04 free\n");
-
+/*
 	void* mem05, *mem06;
 	nmemb = 1;
 	size = INT_MAX;
@@ -604,14 +603,14 @@ int main(void)
 	mem05 = calloc(nmemb,size);
 	mem_to_str(mem05,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
-  mem06 = ft_calloc(nmemb,size);
+ 	mem06 = ft_calloc(nmemb,size);
 	mem_to_str(mem06,nmemb,res_str);
 	printf("[%s] \n",res_str);
 	free (mem05);
 	printf("mem05 free\n");
 	free (mem06);
 	printf("mem06 free\n");
-
+*/
 	void* mem07, *mem08;
 	nmemb = 2;
 	size = INT_MAX;
@@ -619,7 +618,7 @@ int main(void)
 	mem07 = calloc(nmemb,size);
 	mem_to_str(mem07,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
-  mem08 = ft_calloc(nmemb,size);
+	mem08 = ft_calloc(nmemb,size);
 	mem_to_str(mem08,nmemb,res_str);
 	printf("[%s]\t\t\t// calloc returns NULL\n",res_str);
 	free (mem07);
@@ -629,9 +628,9 @@ int main(void)
 	printf("\n");
 
 	char *str12 = "coucou";
-	printf("strdup(%s)\t\t\t\t%s\t\t\t\t%s\t\t\terrno = %s\n",str12,strdup(str12),ft_strdup(str12),errno);
+	printf("strdup(%s)\t\t\t\t%s\t\t\t\t%s\t\t\terrno = %d\n",str12,strdup(str12),ft_strdup(str12),errno);
 	char *str13 = "";
-	printf("strdup(%s)\t\t\t\t[%s]\t\t\t\t[%s]\t\t\terrno = %s\n",str13,strdup(str13),ft_strdup(str13),errno);
+	printf("strdup(%s)\t\t\t\t[%s]\t\t\t\t[%s]\t\t\terrno = %d\n",str13,strdup(str13),ft_strdup(str13),errno);
 	printf("\n");
 
 	printf("strjoin(ABC,DE)\t\t\t\t%s\n",ft_strjoin("ABC", "DE"));
@@ -668,12 +667,11 @@ int main(void)
 	printf("strtrim(\"\",\"\")\t\t\t\t[%s]\n",ft_strtrim("",""));
 	printf("strtrim(\"   xxx   xxx\",\" x\")\t\t[%s]\n",ft_strtrim("   xxx   xxx"," x"));
 	printf("\n");
-*/
+
 	char *str;
 	char	separator;
 	char	**tab;
 	int i;
-/*
 	str = "_A__B__CD";
 	separator = '_';
 	tab = ft_split(str, separator);
@@ -738,7 +736,7 @@ int main(void)
 		printf("NULL\n");
 	printf("\n");
 
-	int n = 10;
+	n = 10;
 	printf("itoa(%d)\t\t\t\t%s\n",n,ft_itoa(n));
 	n = -10;
 	printf("itoa(%d)\t\t\t\t%s\n",n,ft_itoa(n));
@@ -756,7 +754,7 @@ int main(void)
 	printf("itoa(%d)\t\t\t\t%s\n",n,ft_itoa(n));
 	printf("\n");
 
-	char *func(unsigned int n, char c)
+	char func(unsigned int n, char c)
 	{
 		return (c+n);
 	}
@@ -767,7 +765,7 @@ int main(void)
 	printf("strmapi(\"\",c->c+2)\t\t\t[%s]\n",ft_strmapi(s,func));
 	printf("\n");
 
-	char *func2(unsigned int n, char *c)
+	void func2(unsigned int n, char *c)
 	{
 		*c += n;
 	}

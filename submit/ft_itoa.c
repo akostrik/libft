@@ -20,15 +20,15 @@
 
 #include "libft.h"
 
-static size_t	calculate_nb_bytes_without_0(int n)
+static size_t	calculate_nb_bytes_with_0(int n)
 {
 	size_t	i;
 
-	i = 0;
 	if (n == INT_MIN)
-		return (11);
+		return (12);
 	if (n == 0)
-		return (1);
+		return (2);
+	i = 0;
 	if (n < 0)
 	{
 		i = 1;
@@ -39,7 +39,7 @@ static size_t	calculate_nb_bytes_without_0(int n)
 		n = n / 10;
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
 
 static char	*str_0(char *str)
@@ -72,25 +72,25 @@ char	*ft_itoa(int n)
 	size_t	i;
 	size_t	nb_bytes;
 
-	nb_bytes = calculate_nb_bytes_without_0(n);
-	str = (char *)malloc(nb_bytes + 1);
+	nb_bytes = calculate_nb_bytes_with_0(n);
+	str = (char *)malloc(nb_bytes * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	if (n == 0)
 		return (str_0(str));
 	if (n == INT_MIN)
-		return (str_int_min(str));
+	return (str_int_min(str));
 	if (n < 0)
 	{
 		n = -n;
 		str[0] = '-';
 	}
-	i = nb_bytes - 1;
+	i = nb_bytes - 2;
 	while (n > 0)
 	{
 		str[i--] = n % 10 + '0';
 		n = n / 10;
 	}
-	str[nb_bytes] = '\0';
+	str[nb_bytes - 1] = '\0';
 	return (str);
 }

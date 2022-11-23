@@ -42,9 +42,7 @@ static void print_list(t_text_portion **list)
 		cour = cour -> next;
 		len++;
 	}
-	printf("list %p -> %p -> %p -> (%zu,%zu),
-	len = %zu\n",&list,list,*list,(**list).start_text_portion,
-	(**list).len_text_portion,len);
+	printf("list %p -> %p -> %p -> (%zu,%zu),len = %zu\n",&list,list,*list,(**list).start_text_portion,(**list).len_text_portion,len);
 	cour = *list;
 	while(cour != NULL)
 	{
@@ -90,6 +88,8 @@ static t_text_portion	**create_list(char const *s, char c)
 	if (list == NULL)
 		return (NULL);
 	*list = NULL;
+	if (s[0] == '\0')
+		return (list);
 	i = 0;
 	while (1)
 	{
@@ -135,7 +135,7 @@ static char	**create_tab(t_text_portion *list, size_t len_list, char const *s)
 		return (NULL);
 	i = 0;
 	cour = list;
-	while (i < len_list)
+	while (cour != NULL)
 	{
 		tab[i] = (char *)malloc(cour -> len_text_portion + 1);
 		if (tab[i] == NULL)
@@ -149,6 +149,7 @@ static char	**create_tab(t_text_portion *list, size_t len_list, char const *s)
 		tab[i++][j] = '\0';
 		cour = cour -> next;
 	}
+	tab[i] = NULL;
 	return (tab);
 }
 
