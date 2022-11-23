@@ -42,7 +42,6 @@ void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить
 
 int main(void)
 {
-	/*
 	printf("******************************************************************************* LIBC ** MY FUNCTION ***\n");
 	char c = 'a';
 	[[fallthrough]]
@@ -710,7 +709,7 @@ int main(void)
 		printf("[%s] ", tab[i]);
 	if (tab[i] == NULL)
 		printf("NULL\n");
-*/
+
 	str = "  ";
 	separator = ' ';
 	tab = ft_split(str, separator);
@@ -720,7 +719,6 @@ int main(void)
 	if (tab[i] == NULL)
 		printf("NULL\n");
 
-/*
 	str = "  tripouille  42  ";
 	separator = ' ';
 	tab = ft_split(str, separator);
@@ -816,5 +814,4 @@ int main(void)
 	printf("\n putnbr_fd(INT_MIN,1)");
 	ft_putnbr_fd(INT_MIN,1);
 	printf("\n");
-	*/
 }

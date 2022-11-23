@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 // Copies n bytes from memory area src to memory area dest
-// src and dest may overlap: 
-// the bytes in src are first copied into a tmp array that does not 
+// src and dest may overlap:
+// the bytes in src are first copied into a tmp array that does not
 // overlap src or dest, and the bytes are then copied from the tmp array to dest
 // Returns a pointer to dest
-//ft_memmove      : 1.OK 2.OK 3.OK 4.OK 
+//ft_memmove      : 1.OK 2.OK 3.OK 4.OK
 
 #include "libft.h"
 
@@ -39,10 +39,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	if (src0_inside_dest(dest, src, n) == 1)
 	{
-		i = n - 1; // изменения
+		i = n - 1;
 		while (1)
 		{
-			//printf("i=%ld, copy %c\n",i,*((char *)src + i)); //
 			*((char *)dest + i) = *((char *)src + i);
 			if (i == 0)
 				break ;

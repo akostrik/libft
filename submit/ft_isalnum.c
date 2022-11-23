@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// tester ft_isalnum      : 1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.OK 
-
 #include "libft.h"
 
 int	ft_isalnum(int c)

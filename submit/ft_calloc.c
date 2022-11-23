@@ -48,14 +48,6 @@ Crashes are almost always related to heap corruption, such as overflowing an
 allocated chunk or freeing the same pointer twice
 */
 
-// 1.OK 2.MOK 3.OK
-// void * p = ft_calloc(2, 2); char e[] = {0, 0, 0, 0};
-// 1) check(!memcmp(p, e, 4))
-// 2) mcheck(p, 4); free(p);
-
-// ./submit/libft.a(ft_calloc.o): warning: relocation in read-only section `.text'
-// /usr/bin/ld: warning: creating DT_TEXTREL in a PIE
-
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)

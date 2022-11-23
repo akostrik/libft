@@ -20,7 +20,7 @@
 
 #include "libft.h"
 
-static size_t	calculate_nb_bytes(int n)
+static size_t	calculate_nb_bytes_without_0(int n)
 {
 	size_t	i;
 
@@ -42,24 +42,44 @@ static size_t	calculate_nb_bytes(int n)
 	return (i);
 }
 
+static char	*str_0(char *str)
+{
+	str[0] = '0';
+	str[1] = '\0';
+	return (str);
+}
+
+static char	*str_int_min(char *str)
+{
+	str[0] = '-';
+	str[1] = '2';
+	str[2] = '1';
+	str[3] = '4';
+	str[4] = '7';
+	str[5] = '4';
+	str[6] = '8';
+	str[7] = '3';
+	str[8] = '6';
+	str[9] = '4';
+	str[10] = '8';
+	str[11] = '\0';
+	return (str);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
-	char	*str_0;
-	char	*str_int_min;
-	size_t	nb_bytes;
 	size_t	i;
+	size_t	nb_bytes;
 
-	str_0 = {'0', '\0'};
-	str_int_min = {'-', '2', '1', '4', '7', '4', '8', '3', '6', '4', '8', '\0'};
-	nb_bytes = calculate_nb_bytes(n);
+	nb_bytes = calculate_nb_bytes_without_0(n);
 	str = (char *)malloc(nb_bytes + 1);
 	if (str == NULL)
 		return (NULL);
 	if (n == 0)
-		return (str_0);
+		return (str_0(str));
 	if (n == INT_MIN)
-		return (str_int_min);
+		return (str_int_min(str));
 	if (n < 0)
 	{
 		n = -n;
@@ -68,9 +88,8 @@ char	*ft_itoa(int n)
 	i = nb_bytes - 1;
 	while (n > 0)
 	{
-		str[i] = n % 10 + '0';
+		str[i--] = n % 10 + '0';
 		n = n / 10;
-		i--;
 	}
 	str[nb_bytes] = '\0';
 	return (str);

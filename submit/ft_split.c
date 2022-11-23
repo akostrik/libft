@@ -163,7 +163,6 @@ char	**ft_split(char const *s, char c)
 	if (list == NULL)
 		return (NULL);
 	*list = create_list(s, c);
-	print_list(*list);
 	if (*list == NULL)
 		return (NULL);
 	cour = **list;

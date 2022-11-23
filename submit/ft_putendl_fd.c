@@ -13,7 +13,7 @@
 // s: La chaîne de caractères à écrire
 // fd: Le descripteur de fichier sur lequel écrire
 // fonctions autorisées : write
-// Écrit La chaîne de caractères ’s’ sur le descripteur de 
+// Écrit La chaîne de caractères ’s’ sur le descripteur de
 // fichier donné suivie d’un retour à la ligne
 
 // tester ft_putendl_fd   : 1.OK
@@ -28,5 +28,5 @@ void	ft_putendl_fd(char *s, int fd)
 	while (s[i] != '\0')
 		i++;
 	write(fd, s, i);
-	write(fd, "\n", 1); // изменгтя
+	write(fd, "\n", 1);
 }

@@ -18,13 +18,6 @@
 // caractères spécifiés
 // dans ’set’ au début et à la fin de la chaîne de caractères
 
-// 1.OK 2.MOK 3.OK 4.MOK 5.OK 6.MOK 7.OK 8.MKO ==1574627== Invalid free() / delete / delete[] / realloc()
-// ==1574627==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-// ==1574627==    by 0x404A9B: main (ft_strtrim_test.cpp:33)
-// ==1574627==  Address 0x4050d7 is in a r-- mapped file /mnt/nfs/homes/akostrik/nana/01_libft/submit/tester/a.out segment
-// ==1574627==
-// 9.OK 10.MKO 11.OK 12.MOK 13.OK 14.MKO 15.OK 16.MOK
-
 #include "libft.h"
 
 static size_t	to_trim(char c, char const *set)
@@ -45,7 +38,7 @@ static size_t	to_trim(char c, char const *set)
 
 static size_t	calc_new_str_start(char const *s1, char const *set)
 {
-	size_t new_str_start;
+	size_t	new_str_start;
 
 	if (ft_strlen(set) == 0)
 		return (0);
@@ -57,7 +50,7 @@ static size_t	calc_new_str_start(char const *s1, char const *set)
 
 static size_t	calc_new_str_end(char const *s1, char const *set)
 {
-	size_t new_str_end;
+	size_t	new_str_end;
 
 	if (ft_strlen(set) == 0)
 		return (ft_strlen(s1) - 1);
