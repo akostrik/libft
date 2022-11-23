@@ -29,8 +29,8 @@ if you do not have bsd library, you may comment the functions strlcpy, strlcat a
 ```$ ./a.out```
 
 
-
-Tester: https://github.com/Tripouille/libftTester
+---------------------------------------------------
+Tester: https://github.com/Tripouille/libftTester :
 
 ft_memset	: 1.OK 2.OK 
 
