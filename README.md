@@ -10,7 +10,7 @@ install bsd library
 
 ```$ cd ..```
 
-```$ gcc main.c -L./submit -lft -lbsd```
+```$ gcc main.c -L./workspace -lft -lbsd```
 
 ```$ ./a.out```
 
@@ -22,7 +22,7 @@ if you do not have bsd library, you may comment the functions strlcpy, strlcat a
 
 ```$ cd ..```
 
-```$ gcc main.c -L./submit -lft```
+```$ gcc main.c -L./workspace -lft```
 
 ```$ ./a.out```
 
