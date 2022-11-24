@@ -56,6 +56,13 @@ static void print_list(t_text_portion **list)
 
 #include "libft.h"
 
+typedef struct s_text_portion
+{
+	size_t					start_text_portion;
+	size_t					len_text_portion;
+	struct s_text_portion	*next;
+}	t_text_portion;
+
 static int	add_to_end(t_text_portion **lst, size_t start_text, size_t len_text)
 	{
 	t_text_portion	*new_elt;

@@ -24,13 +24,6 @@
 # include <errno.h>
 # include <bsd/string.h>
 
-typedef struct s_text_portion
-{
-	size_t					start_text_portion;
-	size_t					len_text_portion;
-	struct s_text_portion	*next;
-}	t_text_portion;
-
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -54,8 +47,6 @@ char		*ft_strnstr(const char *big, const char *little, size_t len);
 int			ft_atoi(const char *nptr);
 void		*ft_calloc(size_t nmemb, size_t size);
 char		*ft_strdup(const char *s);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
-
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
