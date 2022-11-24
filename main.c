@@ -422,8 +422,17 @@ int main(void)
 	printf("dst=\"%s\"\tret=%ld\t\t",dst33,ret);
 	ret = ft_strlcat(dst34, src, 10);
 	printf("dst=\"%s\"\tret=%ld\n",dst34,ret);
+
+	char dst33[9]; memset(dst33, 'r', 15);
+	char dst34[9]; memset(dst34, 'r', 15);
+	printf("strlcat(%s,%s,%d)\t\t\t",dst33,src,5);
+	ret = strlcat(dst33, "lorem ipsum dolor sit amet", 5);
+	printf("dst=\"%s\"\tret=%ld\t\t",dst33,ret);
+	ret = ft_strlcat(dst34, "lorem ipsum dolor sit amet", 5);
+	printf("dst=\"%s\"\tret=%ld\n",dst34,ret);
 	printf("\n");
 
+	/*
 	printf("toupper('a')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'a'),ft_toupper((unsigned char)'a'));
 	printf("toupper('A')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'A'),ft_toupper((unsigned char)'A'));
 	printf("toupper('*')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'*'),ft_toupper((unsigned char)'*'));
@@ -595,7 +604,7 @@ int main(void)
 	printf("mem03 free\n");
 	free (mem04);
 	printf("mem04 free\n");
-/*
+
 	void* mem05, *mem06;
 	nmemb = 1;
 	size = INT_MAX;
@@ -603,14 +612,14 @@ int main(void)
 	mem05 = calloc(nmemb,size);
 	mem_to_str(mem05,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
- 	mem06 = ft_calloc(nmemb,size);
+ 	//mem06 = ft_calloc(nmemb,size);
 	mem_to_str(mem06,nmemb,res_str);
 	printf("[%s] \n",res_str);
 	free (mem05);
 	printf("mem05 free\n");
 	free (mem06);
 	printf("mem06 free\n");
-*/
+
 	void* mem07, *mem08;
 	nmemb = 2;
 	size = INT_MAX;
@@ -812,4 +821,5 @@ int main(void)
 	printf("\n putnbr_fd(INT_MIN,1)");
 	ft_putnbr_fd(INT_MIN,1);
 	printf("\n");
+	*/
 }
