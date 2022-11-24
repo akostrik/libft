@@ -98,3 +98,6 @@ ft_putendl_fd	: 1.OK
 ft_putnbr_fd	: 1.OK 2.OK 3.OK 4.OK 5.OK 
 
 ft_striteri	: 1.OK 2.OK 3.OK 
+
+-----------------------
+Another tester https://github.com/0x050f/libft-war-machine
