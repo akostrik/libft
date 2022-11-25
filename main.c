@@ -564,7 +564,6 @@ int main(void)
 	printf("atoi(\"%s\")\t\t\t\t%d\t\t\t%d\n",str11,atoi(str11),ft_atoi(str11));
 	printf("\n");
 
-	// ft_calloc попробовать огромные оба параметра
 	void* mem01, *mem02;
 	size_t nmemb = 2;
 	size_t size = 2; // 2 byte

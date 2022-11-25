@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/21 17:59:26 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:46:06 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	i;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+		return (malloc(0));
 	if ((unsigned int)nmemb > INT_MAX / (unsigned int)size)
 		return (NULL);
 	memory_to_return = (char *)malloc(nmemb * size);
