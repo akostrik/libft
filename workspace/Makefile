@@ -6,7 +6,7 @@
 #    By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 14:32:35 by akostrik          #+#    #+#              #
-#    Updated: 2022/11/25 16:36:49 by akostrik         ###   ########.fr        #
+#    Updated: 2022/11/25 18:03:48 by akostrik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ ${NAME}: clean ${OBJS}
 
 #.c.o: gcc -c ${CFLAGS} -I ${HDRS} ${OBJS} -o ${NAME}
 
-%.o: %.c $(INCLUDE)
-	gcc -c $(CFLAGS) -o $@ $<
+%.o: %.c 
+	gcc -c ${CFLAGS} -o $@ $<
 
 clean:
-	rm -f ${OBJS}
+	rm -f ${OBJS} 
 
 fclean: clean
 	rm -f ${NAME}

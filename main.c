@@ -603,7 +603,7 @@ int main(void)
 	printf("mem03 free\n");
 	free (mem04);
 	printf("mem04 free\n");
-
+/*
 	void* mem05, *mem06;
 	nmemb = 1;
 	size = INT_MAX;
@@ -618,7 +618,7 @@ int main(void)
 	printf("mem05 free\n");
 	free (mem06);
 	printf("mem06 free\n");
-
+*/
 	void* mem07, *mem08;
 	nmemb = 2;
 	size = INT_MAX;
