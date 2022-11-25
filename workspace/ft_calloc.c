@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:21:18 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/25 18:46:06 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:49:21 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,6 @@ the glibc malloc() allocates the memory as a private anonymous mapping using
 mmap(2)
 MMAP_THRESHOLD is 128 kB by default, but is adjustable using mallopt(3)
 
-To avoid corruption in multithreaded applications, mutexes are used internally
-to protect the memory-management data structures employed by these functions.
-In a multithreaded application in which threads simultaneously allocate and
-free memory, there could be contention for these mutexes.
-To scalably handle memory allocation in multithreaded applications, glibc
-creates additional memory allocation arenas if mutex contention is detected.
-Each arena is a large region of memory that is internally allocated by the
-system
-(using brk(2) or mmap(2)), and managed with its own mutexes.
-SUSv2 requires calloc() to set errno to ENOMEM upon failure.
-Glibc assumes that this is done (and the glibc versions of these routines do
-this)
 Crashes are almost always related to heap corruption, such as overflowing an
 allocated chunk or freeing the same pointer twice
 */
