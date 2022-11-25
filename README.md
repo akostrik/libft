@@ -102,7 +102,7 @@ ft_memcmp             ok             success     clean            ✓✓✓✓�
 
 ft_strlen             ok             success     clean            ✓✓✓✓✓✓              OK
 
-ft_strdup             ok             success     not clean        ✓                   KO
+ft_strdup             ok             success     clean           ✓                    OK
 
 ft_strlcat            ok             success     clean            ✓✓✓✓✓✓✗✓✓           KO
 
