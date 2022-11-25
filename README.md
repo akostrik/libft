@@ -2,30 +2,12 @@
 A project of 42 School, Solo, about 70 hours
 
 How to run:
-install bsd library
+1) install bsd library
+2) make 
 
-```$ cd submit/```
-
-```$  make```
-
-```$ cd ..```
-
-```$ gcc main.c -L./workspace -lft -lbsd```
-
-```$ ./a.out```
-
-if you do not have bsd library, you may comment the functions strlcpy, strlcat and strnstr and the line #include <bsd/string.h> and use
-
-```$ cd submit/```
-
-```$  make```
-
-```$ cd ..```
-
-```$ gcc main.c -L./workspace -lft```
-
-```$ ./a.out```
-
+if you do not have bsd library:
+1) comment in main.c strlcpy, strlcat and strnstr and the line #include <bsd/string.h>
+2) make
 
 ---------------------------------------------------
 Tester: https://github.com/Tripouille/libftTester :
