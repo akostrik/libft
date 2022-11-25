@@ -29,7 +29,7 @@ size_t обычно применяется для счетчиков цикло�
 Максимально допустимое значение size_t = SIZE_MAX.
 */
 
-#include "submit/libft.h"
+#include "workspace/libft.h"
 
 void mem_to_str(void* mem, size_t nb_bytes, char* res_str) // проверить memset etc
 {
@@ -423,13 +423,13 @@ int main(void)
 	ret = ft_strlcat(dst34, src, 10);
 	printf("dst=\"%s\"\tret=%ld\n",dst34,ret);
 
-	char dst33[9]; memset(dst33, 'r', 15);
-	char dst34[9]; memset(dst34, 'r', 15);
-	printf("strlcat(%s,%s,%d)\t\t\t",dst33,src,5);
-	ret = strlcat(dst33, "lorem ipsum dolor sit amet", 5);
-	printf("dst=\"%s\"\tret=%ld\t\t",dst33,ret);
-	ret = ft_strlcat(dst34, "lorem ipsum dolor sit amet", 5);
-	printf("dst=\"%s\"\tret=%ld\n",dst34,ret);
+	char dst35[16]; memset(dst35, 'r', 15); memset(&dst35[15], '\0', 1);
+	char dst36[16]; memset(dst36, 'r', 15); memset(&dst36[15], '\0', 1);
+	printf("strlcat(\"%s\", \"%s\", %d)\n",dst35,"lorem ipsum dolor sit amet",5);
+	ret = strlcat(dst35, "lorem ipsum dolor sit amet", 5);
+	printf("    dst=\"%s\"   len = %zu ret=%ld\n",dst35,strlen(dst35),ret);
+	ret = ft_strlcat(dst36, "lorem ipsum dolor sit amet", 5);
+	printf("    dst=\"%s\"            len = %zu ret=%ld\n",dst36,strlen(dst36),ret);
 	printf("\n");
 
 	/*
