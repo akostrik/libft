@@ -429,10 +429,9 @@ int main(void)
 	ret = strlcat(dst35, "lorem ipsum dolor sit amet", 5);
 	printf("    dst=\"%s\"   len = %zu ret=%ld\n",dst35,strlen(dst35),ret);
 	ret = ft_strlcat(dst36, "lorem ipsum dolor sit amet", 5);
-	printf("    dst=\"%s\"            len = %zu ret=%ld\n",dst36,strlen(dst36),ret);
+	printf("    dst=\"%s\"   len = %zu ret=%ld\n",dst36,strlen(dst36),ret);
 	printf("\n");
 
-	/*
 	printf("toupper('a')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'a'),ft_toupper((unsigned char)'a'));
 	printf("toupper('A')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'A'),ft_toupper((unsigned char)'A'));
 	printf("toupper('*')\t\t\t\t%c\t\t\t\t%c\n",toupper((unsigned char)'*'),ft_toupper((unsigned char)'*'));
@@ -612,7 +611,7 @@ int main(void)
 	mem05 = calloc(nmemb,size);
 	mem_to_str(mem05,nmemb,res_str);
 	printf("[%s]\t\t\t\t",res_str);
- 	//mem06 = ft_calloc(nmemb,size);
+ 	mem06 = ft_calloc(nmemb,size);
 	mem_to_str(mem06,nmemb,res_str);
 	printf("[%s] \n",res_str);
 	free (mem05);
@@ -821,5 +820,4 @@ int main(void)
 	printf("\n putnbr_fd(INT_MIN,1)");
 	ft_putnbr_fd(INT_MIN,1);
 	printf("\n");
-	*/
 }
