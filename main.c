@@ -439,7 +439,7 @@ int main(void)
 	printf("\n");
 
 	printf("\n");
-	printf("strchr(ABC,'A')\t\t\t\t%s\t\t\t\t%s\n",       strchr("ABC",'A'),     ft_strchr("ABC",'A'));
+	printf("strchr(ABC,'A')\t\t\t\t	%s\t\t\t\t%s\n",       strchr("ABC",'A'),     ft_strchr("ABC",'A'));
 	printf("strchr(ABC,'A'+256)\t\t\t%s\t\t\t\t%s\n",     strchr("ABC",'A'+256), ft_strchr("ABC",'A'+256));
 	printf("strchr(ABC,'A'+128)\t\t\t%s\t\t\t\t%s\n",     strchr("ABC",'A'+128), ft_strchr("ABC",'A'+128));
 	printf("strchr(ABC,'B')\t\t\t\t%s\t\t\t\t%s\n",       strchr("ABC",'B'),     ft_strchr("ABC",'B'));
