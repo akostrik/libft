@@ -82,7 +82,7 @@ ft_putnbr_fd	: 1.OK 2.OK 3.OK 4.OK 5.OK
 ft_striteri	: 1.OK 2.OK 3.OK 
 
 -----------------------
-Another tester https://github.com/0x050f/libft-war-machine
+Tester https://github.com/0x050f/libft-war-machine
 
 FUNCTION              NORME          COMPIL.     FORBIDDEN FUNC.  TESTS               RESULT
 
@@ -153,3 +153,168 @@ ft_putstr_fd          ok             success     clean            ✓✓✓✓  
 ft_putendl_fd         ok             success     clean            ✓✓✓✓                OK
 
 ft_putnbr_fd          ok             success     clean            ✓✓✓✓✓✓✓✓✓           OK
+
+-------------------------------
+Tester https://github.com/alelievr/libft-unit-test
+
+ft_memset:     [OK] [OK] [OK] [NO CRASH] [OK] [OK] [OK] 
+
+[no crash]: your memset does not segfault when null parameter is sent !
+
+ft_bzero:      [OK] [OK] [OK] [OK] 
+
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] 
+
+[crash]: your memcpy does not behave well with NULL as both params with size
+
+ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] [OK] 
+
+[crash]: your memmove does not well with NULL as both parameters and size
+
+ft_memchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+ft_strlen:     [OK] [OK] [OK] [OK] [NO CRASH] [OK] [OK] [OK] [OK] 
+
+[no crash]: your strlen does not segv when null is sended
+
+ft_isalpha:    [OK] 
+
+ft_isdigit:    [OK] 
+
+ft_isalnum:    [OK] 
+
+ft_isascii:    [OK] 
+
+ft_isprint:    [OK] 
+
+ft_toupper:    [OK] 
+
+ft_tolower:    [OK] 
+
+ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [NO CRASH] 
+
+[no crash]: your strchr does not segfault with NULL parameter
+
+ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [NO CRASH] 
+
+[no crash]: your strrchr does not segfault when a null parameter is sent
+
+ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [NO CRASH] [CRASH] 
+
+[no crash]: your strlcat does not segfault when null parameter is sent
+
+[crash]: your strlcat crush when null parameter is sent with a size of 0
+
+ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [NO CRASH] [OK] 
+
+[no crash]: your strnstr does not segfault when null parameter is sent
+
+ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+ft_calloc:     [OK] [OK] [OK] [OK] [OK] 
+
+ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [🛡 ] [OK] 
+
+ft_strjoin:    [OK] [OK] [OK] [OK] [OK] [🛡 ] 
+
+ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [💥 ] 
+
+ft_split:      [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [💥 ] 
+
+ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+ft_strmapi:    [OK] [OK] [OK] [OK] [OK] [💥 ] 
+
+ft_putchar_fd: [OK] [OK] 
+
+ft_putstr_fd:  [OK] [OK] [💥 ] 
+
+ft_putendl_fd: [OK] [OK] [💥 ] 
+
+ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 
+
+You can choose to protect your function or not to,
+a color code will tell you if your function is protected/not BUT stay coherent !
+[🛡 ] --> protected
+[💥 ] --> not protected
+
+-------------------------------------------
+Moulinette
+
+test_ft_isalnum: OK
+
+test_ft_isalpha: OK
+
+test_ft_isascii: OK
+
+test_ft_isdigit: OK
+
+test_ft_isprint: OK
+
+test_ft_atoi: OK
+
+test_ft_bzero: OK
+
+test_ft_calloc: OK
+
+test_ft_itoa: OK
+
+test_ft_memchr: O
+
+test_ft_memcmp: OK
+
+test_ft_memcpy: OK
+
+test_ft_memmove: OK
+
+test_ft_memset: OK
+
+test_ft_putchar_fd: OK
+
+test_ft_putendl_fd: OK
+
+test_ft_putnbr_fd: OK
+
+test_ft_putstr_fd: OK
+
+test_ft_split: OK
+
+test_ft_strchr: OK
+
+test_ft_strdup: OK
+
+test_ft_strjoin: OK
+
+test_ft_strlcat: OK
+
+test_ft_strlcpy: OK
+
+test_ft_strlen: OK
+
+test_ft_strmapi: OK
+
+test_ft_striteri: OK
+
+test_ft_strncmp: OK
+
+test_ft_strnstr: OK
+
+test_ft_strrchr: OK
+
+test_ft_strtrim: OK
+
+test_ft_substr: OK
+
+test_ft_tolower: OK
+
+test_ft_toupper: OK
+
+bonus: KO (Does not compile)
