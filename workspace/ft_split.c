@@ -6,7 +6,7 @@
 /*   By: akostrik <akostrik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:47:09 by akostrik          #+#    #+#             */
-/*   Updated: 2022/11/21 18:58:16 by akostrik         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:59:18 by akostrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,28 +158,25 @@ static char	**create_tab(t_text_portion *list, size_t len_list, char const *s)
 
 char	**ft_split(char const *s, char c)
 {
-	t_text_portion	***list;
+	t_text_portion	**list;
 	t_text_portion	*cour;
 	size_t			len_list;
 	char			**tab;
 
-	list = (t_text_portion ***)malloc(sizeof(t_text_portion **));
+	list = create_list(s, c);
 	if (list == NULL)
 		return (NULL);
-	*list = create_list(s, c);
-	if (*list == NULL)
-		return (NULL);
-	cour = **list;
+	cour = *list;
 	len_list = 0;
 	while (cour != NULL)
 	{
 		cour = cour -> next;
 		len_list++;
 	}
-	tab = create_tab(**list, len_list, s);
+	tab = create_tab(*list, len_list, s);
 	if (tab == NULL)
 		return (NULL);
-	destroy_list(list);
-	free(list);
+	destroy_list(&list);
+	//free(list);
 	return (tab);
 }

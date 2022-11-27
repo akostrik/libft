@@ -718,7 +718,7 @@ int main(void)
 	str = "  ";
 	separator = ' ';
 	tab = ft_split(str, separator);
-	printf("split(\"[%s]\",'%c')\t\t\t\t",str,separator);
+	printf("split(\"[%s]\",'%c')\t\t\t",str,separator);
 	for (i = 0; tab[i] != NULL; i++)
 		printf("[%s] ", tab[i]);
 	if (tab[i] == NULL)
