@@ -267,7 +267,7 @@ test_ft_calloc: OK
 
 test_ft_itoa: OK
 
-test_ft_memchr: O
+test_ft_memchr: OK
 
 test_ft_memcmp: OK
 
