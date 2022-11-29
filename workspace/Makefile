@@ -26,9 +26,6 @@ all: ${NAME}
 
 ${NAME}: ${OBJS} 
 	ar rc ${NAME} ${OBJS}
-#	gcc -c ${CFLAGS} -I ${HDRS} ${OBJS} -o ${NAME}
-
-#.c.o: gcc -c ${CFLAGS} -I ${HDRS} ${OBJS} -o ${NAME}
 
 %.o: %.c 
 	gcc -c ${CFLAGS} -o $@ $<
